@@ -11,7 +11,10 @@ if __name__ == '__main__':
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
 
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
-    df = read_csv(filepath_or_buffer=url)
+    df = read_csv(filepath_or_buffer=url, parse_dates=['Date'])
     logger.info(df.shape)
+    logger.info(list(df))
+    logger.info(df.dtypes)
+    logger.info(df.Date.head(5))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
