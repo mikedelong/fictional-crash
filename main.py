@@ -1,12 +1,11 @@
+import datetime
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
+from math import isnan
 from time import time
 
 from pandas import read_csv
-import datetime
-
-from math import isnan
 
 if __name__ == '__main__':
     time_start = time()
