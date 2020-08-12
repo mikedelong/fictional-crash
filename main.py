@@ -26,7 +26,8 @@ if __name__ == '__main__':
         current_summary = row['Summary']
         if type(current_summary) == float:
             current_summary = ''
-        if isnan(float(row['Flight #'], ), ):
+        flight = row['Flight #']
+        if flight == '-' or isnan(float(flight, ), ):
             logger.info('{}: {} {}'.format(current_year, row['Location'], current_summary, ))
         else:
             logger.info('{}: {} {}'.format(current_year, row['Location'], current_summary, ))
