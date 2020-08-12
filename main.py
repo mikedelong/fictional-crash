@@ -20,10 +20,15 @@ if __name__ == '__main__':
     logger.info(today)
     select_df = df[df.day == today]
     logger.info('crashes on this day in history: {}'.format(len(select_df)))
+    # todo report the data sensibly
     for index, row in select_df.iterrows():
+        current_year = row['Date'].date().year
+        current_summary = row['Summary']
+        if type(current_summary) == float:
+            current_summary = ''
         if isnan(float(row['Flight #'], ), ):
-            pass
+            logger.info('{}: {} {}'.format(current_year, row['Location'], current_summary, ))
         else:
-            logger.info('{} {}'.format(row['Location'], row['Summary'], ))
+            logger.info('{}: {} {}'.format(current_year, row['Location'], current_summary, ))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
