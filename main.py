@@ -28,9 +28,13 @@ if __name__ == '__main__':
         if type(current_summary) == float:
             current_summary = ''
         flight = row['Flight #']
+        location = row['Location']
+        operator = row['Operator']
         if flight == '-' or isnan(float(flight, ), ):
-            logger.info('{}: {} {}'.format(current_year, row['Location'], current_summary, ))
+            logger.info(
+                'In {} a {} flight crashed at/near {}: {}'.format(current_year, operator, location, current_summary, ))
         else:
-            logger.info('{}: {} {}'.format(current_year, row['Location'], current_summary, ))
+            logger.info('In {} {} flight {} crashed at/near {}: {}'.format(current_year, operator, flight, location,
+                                                                           current_summary, ))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
