@@ -29,6 +29,7 @@ if __name__ == '__main__':
         flight = row['Flight #']
         location = row['Location']
         operator = row['Operator']
+        operator = operator.replace('Taroma', 'Tahoma')
         if flight == '-' or isnan(float(flight, ), ):
             logger.info(
                 'In {} a {} flight crashed at/near {}: {}'.format(current_year, operator, location, current_summary, ))
