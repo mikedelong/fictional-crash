@@ -6,11 +6,14 @@ from math import isnan
 from time import time
 
 from pandas import read_csv
+from spellchecker import SpellChecker
 
 if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
+    spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', local_dictionary=None,
+                                 tokenizer=None, )
 
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
@@ -30,6 +33,10 @@ if __name__ == '__main__':
         current_summary = current_summary.replace('  ', ' ', )
         current_summary = current_summary.replace(',,', ',', )
         current_summary = current_summary.replace('Destoryed', 'Destroyed')
+        misspelled = spell_checker.unknown(current_summary.split(),)
+        if len(misspelled) > 0:
+            for word in misspelled:
+                logger.warning('misspelled: {}'.format(word))
         flight = row['Flight #']
         location = row['Location']
         operator = row['Operator']
