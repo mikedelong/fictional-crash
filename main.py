@@ -14,6 +14,9 @@ if __name__ == '__main__':
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', local_dictionary=None,
                                  tokenizer=None, )
+    words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight',
+             'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', ]
+    spell_checker.word_frequency.load_words(words=words)
 
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
