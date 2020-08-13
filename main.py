@@ -32,10 +32,18 @@ if __name__ == '__main__':
         operator = operator.replace('Taroma', 'Tahoma', )
         operator = operator.replace('Military - ', '', )
         if flight == '-' or isnan(float(flight, ), ):
-            logger.info(
-                'In {} a {} flight crashed at/near {}: {}'.format(current_year, operator, location, current_summary, ))
+            if len(current_summary) == 0:
+                logger.info(
+                    'In {} a {} flight crashed at/near {}.'.format(current_year, operator, location, ))
+            else:
+                logger.info(
+                    'In {} a {} flight crashed at/near {}: {}'.format(current_year, operator, location,
+                                                                      current_summary, ))
         else:
-            logger.info('In {} {} flight {} crashed at/near {}: {}'.format(current_year, operator, flight, location,
-                                                                           current_summary, ))
+            if len(current_summary) == 0:
+                logger.info('In {} {} flight {} crashed at/near {}.'.format(current_year, operator, flight, location, ))
+            else:
+                logger.info('In {} {} flight {} crashed at/near {}: {}'.format(current_year, operator, flight, location,
+                                                                               current_summary, ))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
