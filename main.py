@@ -27,15 +27,22 @@ if __name__ == '__main__':
     select_df = df[df.day == today]
     logger.info('crashes on this day in history: {}'.format(len(select_df)))
     # todo report the data sensibly
+    fixes = {
+        '  ': ' ',
+        ',,': ',',
+        'Destoryed': 'Destroyed',
+        'classisymptoms': 'classic symptoms',
+        'approah': 'approach',
+        'Slamed': 'Slammed'
+    }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
         current_summary = row['Summary']
         if type(current_summary) == float:
             current_summary = ''
         current_summary = current_summary.strip()
-        current_summary = current_summary.replace('  ', ' ', )
-        current_summary = current_summary.replace(',,', ',', )
-        current_summary = current_summary.replace('Destoryed', 'Destroyed')
+        for key, value in fixes.items():
+            current_summary = current_summary.replace(key, value, )
         tokens = current_summary.split()
         tokens = [token[:-1] if token.endswith('.') or token.endswith(',') else token for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
