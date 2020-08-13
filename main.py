@@ -33,7 +33,9 @@ if __name__ == '__main__':
         current_summary = current_summary.replace('  ', ' ', )
         current_summary = current_summary.replace(',,', ',', )
         current_summary = current_summary.replace('Destoryed', 'Destroyed')
-        misspelled = spell_checker.unknown(current_summary.split(),)
+        tokens = current_summary.split()
+        tokens = [token[:-1] if token.endswith('.') or token.endswith(',') else token for token in tokens]
+        misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
                 logger.warning('misspelled: {}'.format(word))
