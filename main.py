@@ -26,6 +26,10 @@ if __name__ == '__main__':
         current_summary = row['Summary']
         if type(current_summary) == float:
             current_summary = ''
+        current_summary = current_summary.strip()
+        current_summary = current_summary.replace('  ', ' ', )
+        current_summary = current_summary.replace(',,', ',', )
+        current_summary = current_summary.replace('Destoryed', 'Destroyed')
         flight = row['Flight #']
         location = row['Location']
         operator = row['Operator']
