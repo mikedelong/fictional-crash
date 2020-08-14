@@ -55,6 +55,7 @@ if __name__ == '__main__':
         operator = row['Operator']
         operator = operator.replace('Taroma', 'Tahoma', )
         operator = operator.replace('Military - ', '', )
+        # todo consolidate this into a simpler structure; either we have a flight number or we don't
         if type(flight) == str and flight != '-':
             if len(current_summary) == 0:
                 logger.info('In {} {} flight {} crashed at/near {}.'.format(current_year, operator, flight, location, ))
