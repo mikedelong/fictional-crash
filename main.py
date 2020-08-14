@@ -17,7 +17,7 @@ if __name__ == '__main__':
     words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight',
              'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding',
              'maneuver', 'two-engine', 'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight',
-             'pilot\'s', 'Durzana',]
+             'pilot\'s', 'Durzana', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
@@ -50,7 +50,8 @@ if __name__ == '__main__':
         for key, value in fixes.items():
             current_summary = current_summary.replace(key, value, )
         tokens = current_summary.split()
-        tokens = [token[:-1] if token.endswith('.') or token.endswith(',') else token for token in tokens]
+        tokens = [token[:-1] if any([token.endswith(':'), token.endswith(','), token.endswith('.'), ]) else token for
+                  token in tokens]
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
