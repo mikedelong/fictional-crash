@@ -17,7 +17,8 @@ if __name__ == '__main__':
     words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight',
              'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding',
              'maneuver', 'two-engine', 'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight',
-             'pilot\'s', 'Durzana', ]
+             'pilot\'s', 'Durzana', '4,000', '#3', 'through-bolts', 'studs/engine', 'Huila', 'Nevado',
+             '14,500']
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
