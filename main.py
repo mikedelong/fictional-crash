@@ -15,7 +15,10 @@ if __name__ == '__main__':
     spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', local_dictionary=None,
                                  tokenizer=None, )
     words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight',
-             'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', ]
+             'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding',
+             'maneuver', 'two-engine', 'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight',
+             'pilot\'s', 'Durzana',]
+    # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
     # todo add data after June 2009
@@ -35,6 +38,8 @@ if __name__ == '__main__':
         'classisymptoms': 'classic symptoms',
         'approah': 'approach',
         'Slamed': 'Slammed',
+        'condtions': 'conditions',
+        'geographiand': 'geography and'
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
