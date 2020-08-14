@@ -27,6 +27,7 @@ if __name__ == '__main__':
     select_df = df[df.day == today]
     logger.info('crashes on this day in history: {}'.format(len(select_df)))
     # todo report the data sensibly
+    # todo report fatalities
     fixes = {
         '  ': ' ',
         ',,': ',',
