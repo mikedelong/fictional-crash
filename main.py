@@ -17,8 +17,7 @@ if __name__ == '__main__':
     words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight',
              'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding',
              'maneuver', 'two-engine', 'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight',
-             'pilot\'s', 'Durzana', '4,000', '#3', 'through-bolts', 'studs/engine', 'Huila', 'Nevado',
-             '14,500']
+             'pilot\'s', 'Durzana', '#3', 'through-bolts', 'studs/engine', 'Huila', 'Nevado', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
@@ -56,7 +55,8 @@ if __name__ == '__main__':
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
-                logger.warning('misspelled: {}'.format(word))
+                if not word.replace(',', '').isnumeric():
+                    logger.warning('misspelled: {}'.format(word))
         flight = row['Flight #']
         location = row['Location']
         operator = row['Operator']
