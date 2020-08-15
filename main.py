@@ -14,10 +14,11 @@ if __name__ == '__main__':
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', local_dictionary=None,
                                  tokenizer=None, )
-    words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight',
-             'flightcrew\'s', 'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding',
-             'maneuver', 'two-engine', 'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight',
-             'pilot\'s', 'Durzana', '#3', 'through-bolts', 'studs/engine', 'Huila', 'Nevado', ]
+    words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight', 'flightcrew\'s',
+             'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
+             'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
+             'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara', 'FL230',
+             'minimums', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
@@ -39,7 +40,8 @@ if __name__ == '__main__':
         'approah': 'approach',
         'Slamed': 'Slammed',
         'condtions': 'conditions',
-        'geographiand': 'geography and'
+        'geographiand': 'geography and',
+        'AtlantiOcean': 'Atlantic Ocean',
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
