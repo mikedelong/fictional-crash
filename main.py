@@ -51,8 +51,7 @@ if __name__ == '__main__':
         for key, value in fixes.items():
             current_summary = current_summary.replace(key, value, )
         tokens = current_summary.split()
-        tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for
-                  token in tokens]
+        tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
