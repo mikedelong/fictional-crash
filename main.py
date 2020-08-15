@@ -12,8 +12,7 @@ if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
-    spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', local_dictionary=None,
-                                 tokenizer=None, )
+    spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', tokenizer=None, )
     words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight', 'flightcrew\'s',
              'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
              'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
