@@ -18,7 +18,6 @@ def valid_date(arg):
         return False
 
 
-
 if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
@@ -28,7 +27,8 @@ if __name__ == '__main__':
              'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
              'peening', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
              'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara',
-             'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan', ]
+             'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan', 'victims\'',
+             'crew\'s', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
