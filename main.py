@@ -5,9 +5,10 @@ from logging import getLogger
 from math import isnan
 from time import time
 
+from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
-from dateutil.parser import parse
+
 
 def valid_date(arg):
     try:
@@ -15,6 +16,7 @@ def valid_date(arg):
         return True
     except ValueError:
         return False
+
 
 if __name__ == '__main__':
     time_start = time()
@@ -64,7 +66,7 @@ if __name__ == '__main__':
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
-                if not any([word.replace(',', '').isnumeric(), valid_date(word)])  :
+                if not any([word.replace(',', '').isnumeric(), valid_date(word)]):
                     logger.warning('misspelled: {}'.format(word))
 
         aboard = int(row['Aboard'])
