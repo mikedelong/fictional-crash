@@ -31,7 +31,7 @@ if __name__ == '__main__':
              'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
              'peening', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
              'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara',
-             'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan', 'victims\'',
+             'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan',  'victims\'',
              'crew\'s', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
@@ -68,6 +68,7 @@ if __name__ == '__main__':
             current_summary = current_summary.replace(key, value, )
         tokens = current_summary.split()
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
+        tokens = [token.replace('’', '\'') for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
