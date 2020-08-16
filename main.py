@@ -18,6 +18,10 @@ def valid_date(arg):
         return False
 
 
+def is_flight_level(arg):
+    return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) < 400
+
+
 if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
@@ -67,7 +71,7 @@ if __name__ == '__main__':
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
-                if not any([word.replace(',', '').isnumeric(), valid_date(word)]):
+                if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word), ], ):
                     logger.warning('misspelled: {}'.format(word))
 
         aboard = int(row['Aboard'])
