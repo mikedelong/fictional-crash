@@ -7,6 +7,14 @@ from time import time
 
 from pandas import read_csv
 from spellchecker import SpellChecker
+from dateutil.parser import parse
+
+def valid_date(arg):
+    try:
+        parse(arg)
+        return True
+    except ValueError:
+        return False
 
 if __name__ == '__main__':
     time_start = time()
@@ -17,7 +25,7 @@ if __name__ == '__main__':
              'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
              'peening', 'FL340', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
              'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara', 'FL230',
-             'minimums', ]
+             'minimums', 'reoriented', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
@@ -41,6 +49,7 @@ if __name__ == '__main__':
         'condtions': 'conditions',
         'geographiand': 'geography and',
         'AtlantiOcean': 'Atlantic Ocean',
+        'forcasted': 'forecasted',
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
@@ -55,8 +64,9 @@ if __name__ == '__main__':
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
-                if not word.replace(',', '').isnumeric():
+                if not any([word.replace(',', '').isnumeric(), valid_date(word)])  :
                     logger.warning('misspelled: {}'.format(word))
+
         aboard = int(row['Aboard'])
         flight = row['Flight #']
         location = row['Location']
