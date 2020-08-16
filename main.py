@@ -31,8 +31,8 @@ if __name__ == '__main__':
              'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
              'peening', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
              'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara',
-             'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan',  'victims\'',
-             'crew\'s', ]
+             'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan', 'victims\'',
+             'crew\'s', 'Cecelia', 'Cichan', 'downdraft', ]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
@@ -57,6 +57,10 @@ if __name__ == '__main__':
         'geographiand': 'geography and',
         'AtlantiOcean': 'Atlantic Ocean',
         'forcasted': 'forecasted',
+        'publistatements': 'public statements',
+        'tragicrash': 'tragic crash',
+        'liftoff': 'lift-off',
+        'obsticales': 'obstacles',
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
@@ -81,6 +85,7 @@ if __name__ == '__main__':
         operator = row['Operator']
         operator = operator.replace('Taroma', 'Tahoma', )
         operator = operator.replace('Military - ', '', )
+        operator = operator.replace('  - Taxi', '')
         # todo consolidate this into a simpler structure; either we have a flight number or we don't
         if type(flight) == str and flight != '-':
             if len(current_summary) == 0:
