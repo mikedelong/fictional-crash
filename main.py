@@ -32,7 +32,7 @@ if __name__ == '__main__':
              'peening', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
              'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara',
              'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan', 'victims\'',
-             'crew\'s', 'Cecelia', 'Cichan', 'downdraft', ]
+             'crew\'s', 'Cecelia', 'Cichan', 'downdraft', 'Hachijo', 'Raphel', 'aircraft\'s', 'Bahawalpur',]
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
