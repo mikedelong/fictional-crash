@@ -1,4 +1,5 @@
 import datetime
+from json import load
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
@@ -8,7 +9,6 @@ from time import time
 from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
-from json import load
 
 
 def valid_date(arg):
