@@ -27,12 +27,10 @@ if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
-    spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', tokenizer=None, )
+    spell_checker = SpellChecker(case_sensitive=True, distance=2, language='en', tokenizer=None, )
 
-    with open(encoding='utf-8', file='./words.json', mode='r',) as words_fp:
-        words = load(fp=words_fp,)
     # Durzana ?
-    spell_checker.word_frequency.load_words(words=words)
+    spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None,)
 
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
@@ -72,9 +70,11 @@ if __name__ == '__main__':
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         tokens = [token.replace('’', '\'') for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
+        exceptions = {'aircraft\'s', 'pilot\'s', }
         if len(misspelled) > 0:
             for word in misspelled:
-                if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word), ], ):
+                if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word),
+                            word in exceptions, ], ):
                     logger.warning('misspelled: {}'.format(word))
 
         aboard = int(row['Aboard'])
