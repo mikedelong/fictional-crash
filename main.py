@@ -27,12 +27,12 @@ if __name__ == '__main__':
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     spell_checker = SpellChecker(case_sensitive=False, distance=2, language='en', tokenizer=None, )
-    words = ['yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight', 'flightcrew\'s',
+    words = {'yawed', 'spiraling', 'non-instrument', 'Hattiesburg', 'Gulfport', 'preflight', 'flightcrew\'s',
              'captain\'s', 'crossfeed', '36r', 'airplane\'s', 'Gilmer', 'overspeeding', 'maneuver', 'two-engine',
              'peening', 'Prodromos', 'terrorist-proof', 'pilot/flight', 'pilot\'s', 'Durzana', '#3',
              'through-bolts', 'studs/engine', 'Huila', 'Nevado', 'Glendo', 'nose-heaviness', 'Guanabara',
              'minimums', 'reoriented', 'Imphal', '4-year-old', 'Perija', 'Columbian-Venezuelan', 'victims\'',
-             'crew\'s', 'Cecelia', 'Cichan', 'downdraft', 'Hachijo', 'Raphel', 'aircraft\'s', 'Bahawalpur',]
+             'crew\'s', 'Cecelia', 'Cichan', 'downdraft', 'Hachijo', 'Raphel', 'aircraft\'s', 'Bahawalpur',}
     # Durzana ?
     spell_checker.word_frequency.load_words(words=words)
 
