@@ -1,5 +1,4 @@
 import datetime
-from json import load
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
