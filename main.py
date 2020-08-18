@@ -89,13 +89,9 @@ if __name__ == '__main__':
         location = row['Location']
         for key, value in fixes.items():
             location = location.replace(key, value, )
-        # location = location.replace('DemocratiRepubliCongo', 'Democratic Republic of the Congo', )
         operator = row['Operator']
         for key, value in fixes.items():
             operator = operator.replace(key, value, )
-        # operator = operator.replace('Taroma', 'Tahoma', )
-        # operator = operator.replace('Military - ', '', )
-        # operator = operator.replace('  - Taxi', '')
         # todo consolidate this into a simpler structure; either we have a flight number or we don't
         if type(flight) == str and flight != '-':
             if len(current_summary) == 0:
