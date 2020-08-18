@@ -29,7 +29,7 @@ if __name__ == '__main__':
     spell_checker = SpellChecker(case_sensitive=True, distance=2, language='en', tokenizer=None, )
 
     # Durzana ?
-    spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None,)
+    spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None, )
 
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
@@ -59,7 +59,11 @@ if __name__ == '__main__':
         'obsticales': 'obstacles',
         'enroute': 'en route',
         'attemping': 'attempting',
-        'Nyarigongo' : 'Nyiragongo',
+        'Nyarigongo': 'Nyiragongo',
+        'DemocratiRepubliCongo': 'Democratic Republic of the Congo',
+        'Taroma': 'Tahoma',
+        'Military - ': '',
+        '  - Taxi': '',
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
@@ -83,7 +87,7 @@ if __name__ == '__main__':
         aboard = int(row['Aboard'])
         flight = row['Flight #']
         location = row['Location']
-        location = location.replace('DemocratiRepubliCongo', 'Democratic Republic of the Congo')
+        location = location.replace('DemocratiRepubliCongo', 'Democratic Republic of the Congo', )
         operator = row['Operator']
         operator = operator.replace('Taroma', 'Tahoma', )
         operator = operator.replace('Military - ', '', )
