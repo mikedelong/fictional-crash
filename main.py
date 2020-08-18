@@ -22,6 +22,7 @@ def is_flight_level(arg):
     return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) < 400
 
 
+# todo move fix data from code to data
 FIXES = {
     '  ': ' ',
     ',,': ',',
@@ -65,7 +66,6 @@ if __name__ == '__main__':
     logger.info('crashes on this day in history: {}'.format(len(select_df)))
     # todo report the data sensibly
     # todo report fatalities
-    # todo move fix data from code to data
     for index, row in select_df.iterrows():
         aboard = int(row['Aboard'])
         current_year = row['Date'].date().year
