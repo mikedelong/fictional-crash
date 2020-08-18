@@ -59,6 +59,7 @@ if __name__ == '__main__':
         'obsticales': 'obstacles',
         'enroute': 'en route',
         'attemping': 'attempting',
+        'Nyarigongo' : 'Nyiragongo',
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
@@ -82,6 +83,7 @@ if __name__ == '__main__':
         aboard = int(row['Aboard'])
         flight = row['Flight #']
         location = row['Location']
+        location = location.replace('DemocratiRepubliCongo', 'Democratic Republic of the Congo')
         operator = row['Operator']
         operator = operator.replace('Taroma', 'Tahoma', )
         operator = operator.replace('Military - ', '', )
