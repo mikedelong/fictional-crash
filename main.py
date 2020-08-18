@@ -71,14 +71,12 @@ if __name__ == '__main__':
         if type(current_summary) == float:
             current_summary = ''
         current_summary = current_summary.strip()
-        location = row['Location']
-        for key, value in fixes.items():
-            location = location.replace(key, value, )
-        operator = row['Operator']
-        for key, value in fixes.items():
-            operator = operator.replace(key, value, )
+        location = row['Location'].strip()
+        operator = row['Operator'].strip()
         for key, value in fixes.items():
             current_summary = current_summary.replace(key, value, )
+            location = location.replace(key, value, )
+            operator = operator.replace(key, value, )
         tokens = current_summary.split()
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         tokens = [token.replace('’', '\'') for token in tokens]
