@@ -57,6 +57,8 @@ if __name__ == '__main__':
         'tragicrash': 'tragic crash',
         'liftoff': 'lift-off',
         'obsticales': 'obstacles',
+        'enroute': 'en route',
+        'attemping': 'attempting',
     }
     for index, row in select_df.iterrows():
         current_year = row['Date'].date().year
