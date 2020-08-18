@@ -71,6 +71,12 @@ if __name__ == '__main__':
         if type(current_summary) == float:
             current_summary = ''
         current_summary = current_summary.strip()
+        location = row['Location']
+        for key, value in fixes.items():
+            location = location.replace(key, value, )
+        operator = row['Operator']
+        for key, value in fixes.items():
+            operator = operator.replace(key, value, )
         for key, value in fixes.items():
             current_summary = current_summary.replace(key, value, )
         tokens = current_summary.split()
@@ -86,12 +92,6 @@ if __name__ == '__main__':
 
         aboard = int(row['Aboard'])
         flight = row['Flight #']
-        location = row['Location']
-        for key, value in fixes.items():
-            location = location.replace(key, value, )
-        operator = row['Operator']
-        for key, value in fixes.items():
-            operator = operator.replace(key, value, )
         # todo consolidate this into a simpler structure; either we have a flight number or we don't
         if type(flight) == str and flight != '-':
             if len(current_summary) == 0:
