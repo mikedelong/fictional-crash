@@ -22,6 +22,30 @@ def is_flight_level(arg):
     return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) < 400
 
 
+FIXES = {
+    '  ': ' ',
+    ',,': ',',
+    'Destoryed': 'Destroyed',
+    'classisymptoms': 'classic symptoms',
+    'approah': 'approach',
+    'Slamed': 'Slammed',
+    'condtions': 'conditions',
+    'geographiand': 'geography and',
+    'AtlantiOcean': 'Atlantic Ocean',
+    'forcasted': 'forecasted',
+    'publistatements': 'public statements',
+    'tragicrash': 'tragic crash',
+    'liftoff': 'lift-off',
+    'obsticales': 'obstacles',
+    'enroute': 'en route',
+    'attemping': 'attempting',
+    'Nyarigongo': 'Nyiragongo',
+    'DemocratiRepubliCongo': 'Democratic Republic of the Congo',
+    'Taroma': 'Tahoma',
+    'Military - ': '',
+    '  - Taxi': '',
+}
+
 if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
@@ -42,38 +66,17 @@ if __name__ == '__main__':
     # todo report the data sensibly
     # todo report fatalities
     # todo move fix data from code to data
-    fixes = {
-        '  ': ' ',
-        ',,': ',',
-        'Destoryed': 'Destroyed',
-        'classisymptoms': 'classic symptoms',
-        'approah': 'approach',
-        'Slamed': 'Slammed',
-        'condtions': 'conditions',
-        'geographiand': 'geography and',
-        'AtlantiOcean': 'Atlantic Ocean',
-        'forcasted': 'forecasted',
-        'publistatements': 'public statements',
-        'tragicrash': 'tragic crash',
-        'liftoff': 'lift-off',
-        'obsticales': 'obstacles',
-        'enroute': 'en route',
-        'attemping': 'attempting',
-        'Nyarigongo': 'Nyiragongo',
-        'DemocratiRepubliCongo': 'Democratic Republic of the Congo',
-        'Taroma': 'Tahoma',
-        'Military - ': '',
-        '  - Taxi': '',
-    }
     for index, row in select_df.iterrows():
+        aboard = int(row['Aboard'])
         current_year = row['Date'].date().year
         current_summary = row['Summary']
         if type(current_summary) == float:
             current_summary = ''
         current_summary = current_summary.strip()
+        flight = row['Flight #']
         location = row['Location'].strip()
         operator = row['Operator'].strip()
-        for key, value in fixes.items():
+        for key, value in FIXES.items():
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
@@ -88,8 +91,6 @@ if __name__ == '__main__':
                             word in exceptions, ], ):
                     logger.warning('misspelled: {}'.format(word))
 
-        aboard = int(row['Aboard'])
-        flight = row['Flight #']
         # todo consolidate this into a simpler structure; either we have a flight number or we don't
         if type(flight) == str and flight != '-':
             if len(current_summary) == 0:
