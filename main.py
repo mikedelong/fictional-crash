@@ -97,33 +97,17 @@ if __name__ == '__main__':
                             word in exceptions, ], ):
                     logger.warning('misspelled: {}'.format(word))
 
-        # todo consolidate this into a simpler structure; either we have a flight number or we don't
+        output = 'In {} '.format(current_year, )
         if type(flight) == str and flight != '-':
-            if len(current_summary) == 0:
-                logger.info('In {} {} flight {} crashed at/near {} with {} aboard.'.format(current_year, operator,
-                                                                                           flight, location, aboard, ))
-            else:
-                logger.info(
-                    'In {} {} flight {} crashed at/near {} with {} aboard: {}'.format(current_year, operator, flight,
-                                                                                      location, aboard,
-                                                                                      current_summary, ))
+            output += '{} flight {} crashed at/near '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
-            if len(current_summary) == 0:
-                logger.info(
-                    'In {} a {} flight crashed at/near {} with {} aboard.'.format(current_year, operator, location,
-                                                                                  aboard, ))
-            else:
-                logger.info(
-                    'In {} a {} flight crashed at/near {} with {} aboard: {}'.format(current_year, operator, location,
-                                                                                     aboard, current_summary, ))
+            output += 'a {} flight crashed at/near '.format(operator, )
         else:
-            if len(current_summary) == 0:
-                logger.info('In {} {} flight {} crashed at/near {} with {} aboard.'.format(current_year, operator,
-                                                                                           flight, location, aboard, ))
-            else:
-                logger.info(
-                    'In {} {} flight {} crashed at/near {} with {} aboard: {}'.format(current_year, operator, flight,
-                                                                                      location, aboard, current_summary,
-                                                                                      ))
+            output += '{} flight {} crashed at/near '.format(operator, flight, )
+        output += '{} with {} aboard. '.format(location, aboard, )
+        if len(current_summary) > 0:
+            output += current_summary
+
+        logger.info(output)
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
