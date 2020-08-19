@@ -107,6 +107,8 @@ if __name__ == '__main__':
         output += '{} with {} aboard. '.format(location, aboard, )
         if fatalities > 0:
             output += 'There were {} fatalities. '.format(int(fatalities))
+        else:
+            output += 'There were no fatalities.'
         if len(current_summary) > 0:
             output += current_summary
 
