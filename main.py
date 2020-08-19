@@ -78,6 +78,7 @@ if __name__ == '__main__':
         if type(current_summary) == float:
             current_summary = ''
         current_summary = current_summary.strip()
+        fatalities = row['Fatalities']
         flight = row['Flight #']
         location = row['Location'].strip()
         operator = row['Operator'].strip()
@@ -89,7 +90,7 @@ if __name__ == '__main__':
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         tokens = [token.replace('’', '\'') for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
-        exceptions = {'aircraft\'s', 'pilot\'s', 'helicopter\'s', 'shoulder-launched', }
+        exceptions = {'aircraft\'s', 'helicopter\'s', 'pilot\'s', 'shoulder-launched', }
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word),
