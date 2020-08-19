@@ -105,6 +105,8 @@ if __name__ == '__main__':
         else:
             output += '{} flight {} crashed at/near '.format(operator, flight, )
         output += '{} with {} aboard. '.format(location, aboard, )
+        if fatalities > 0:
+            output += 'There were {} fatalities. '.format(int(fatalities))
         if len(current_summary) > 0:
             output += current_summary
 
