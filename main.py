@@ -45,6 +45,8 @@ FIXES = {
     'Taroma': 'Tahoma',
     'Military - ': '',
     '  - Taxi': '',
+    ' - Air Taxi': '',
+    'Air Taxi - ': '',
     'Monseny': 'Montseny',
     'Agusta': 'Augusta',
     'Rilyadh': 'Riyadh',
