@@ -49,7 +49,10 @@ FIXES = {
     'Agusta': 'Augusta',
     'Rilyadh': 'Riyadh',
     'tarmaby': 'tarmac by',
-    'hydraulicontrol': 'hydraulic control'
+    'hydraulicontrol': 'hydraulic control',
+    'atmosphericonditions': 'atmospheric conditions',
+    'VORr': 'VOR',
+    'it\'s': 'its',
 }
 
 if __name__ == '__main__':
@@ -90,7 +93,7 @@ if __name__ == '__main__':
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         tokens = [token.replace('’', '\'') for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
-        exceptions = {'aircraft\'s', 'helicopter\'s', 'pilot\'s', 'shoulder-launched', }
+        exceptions = {'aircraft\'s', 'helicopter\'s', 'pilot\'s', 'shoulder-launched', '13-meter', }
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word),
