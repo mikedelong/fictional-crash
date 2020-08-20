@@ -83,6 +83,7 @@ if __name__ == '__main__':
         current_summary = current_summary.strip()
         fatalities = row['Fatalities']
         flight = row['Flight #']
+        ground = row['Ground']
         location = row['Location'].strip()
         operator = row['Operator'].strip()
         for key, value in FIXES.items():
@@ -109,9 +110,10 @@ if __name__ == '__main__':
             output += '{} flight {} crashed at/near '.format(operator, flight, )
         output += '{} with {} aboard. '.format(location, aboard, )
         if fatalities > 0:
-            output += 'There were {} fatalities. '.format(int(fatalities))
+            output += 'There were {} passenger/crew fatalities. '.format(int(fatalities))
         else:
-            output += 'There were no fatalities.'
+            output += 'There were no passenger/crew fatalities.'
+
         if len(current_summary) > 0:
             output += current_summary
 
