@@ -55,6 +55,7 @@ FIXES = {
     'atmosphericonditions': 'atmospheric conditions',
     'VORr': 'VOR',
     'it\'s': 'its',
+    'trafficontrollers': 'traffic controllers',
 }
 
 if __name__ == '__main__':
@@ -75,7 +76,6 @@ if __name__ == '__main__':
     select_df = df[df.day == today]
     logger.info('crashes on this day in history: {}'.format(len(select_df)))
     # todo report the data sensibly
-    # todo report fatalities
     for index, row in select_df.iterrows():
         aboard = int(row['Aboard'])
         current_year = row['Date'].date().year
@@ -96,7 +96,7 @@ if __name__ == '__main__':
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         tokens = [token.replace('’', '\'') for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
-        exceptions = {'aircraft\'s', 'helicopter\'s', 'pilot\'s', 'shoulder-launched', '13-meter', }
+        exceptions = {'aircraft\'s', 'helicopter\'s', 'pilot\'s', 'shoulder-launched', '13-meter', 'go-around', }
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word),
