@@ -73,6 +73,7 @@ if __name__ == '__main__':
     df['day'] = df.apply(lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ), axis=1, )
 
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
+    # todo refactor and remove select_df (?)
     select_df = df[df.day == today]
     logger.info('crashes on this day in history: {}'.format(len(select_df)))
     # todo report the data sensibly
