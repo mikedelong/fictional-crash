@@ -8,6 +8,7 @@ from time import time
 from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
+from json import load
 
 
 def valid_date(arg):
@@ -26,6 +27,7 @@ def is_flight_level(arg):
 FIXES = {
     '  ': ' ',
     ',,': ',',
+    ' , ': ', ',
     'Destoryed': 'Destroyed',
     'classisymptoms': 'classic symptoms',
     'approah': 'approach',
@@ -97,15 +99,13 @@ if __name__ == '__main__':
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
-        tokens = current_summary.split()
+        tokens = current_summary.lower().replace('’', ' ').replace('\'', ' ').replace('-', ' ').replace('/',
+                                                                                                        ' ').split()
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
-        tokens = [token.replace('’', '\'') for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
-        exceptions = {'aircraft\'s', 'helicopter\'s', 'pilot\'s', 'shoulder-launched', '13-meter', 'go-around', }
         if len(misspelled) > 0:
             for word in misspelled:
-                if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word),
-                            word in exceptions, ], ):
+                if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word), ], ):
                     logger.warning('misspelled: {}'.format(word))
 
         output = 'In {} '.format(current_year, )
