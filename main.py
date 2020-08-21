@@ -86,10 +86,7 @@ if __name__ == '__main__':
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
-        try:
-            location = row['Location'].strip()
-        except AttributeError as error:
-            logger.warning('location: {} strip failed.'.format(row['Location']))
+        location = row['Location'].strip() if type(row['Location']) == str else ''
         operator = row['Operator'].strip()
         for key, value in FIXES.items():
             current_summary = current_summary.replace(key, value, )
@@ -108,12 +105,13 @@ if __name__ == '__main__':
 
         output = 'In {} '.format(current_year, )
         if type(flight) == str and flight != '-':
-            output += '{} flight {} crashed at/near '.format(operator, flight, )
+            output += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
-            output += 'a {} flight crashed at/near '.format(operator, )
+            output += 'a {} flight crashed '.format(operator, )
         else:
-            output += '{} flight {} crashed at/near '.format(operator, flight, )
-        output += '{} with {} aboard. '.format(location, aboard, )
+            output += '{} flight {} crashed '.format(operator, flight, )
+        output += 'at/near {} '.format(location,) if location != '' else 'at an unknown location '
+        output += 'with {} aboard. '.format(aboard, )
         if fatalities > 0:
             output += 'There were {} passenger/crew fatalities. '.format(int(fatalities))
         else:
