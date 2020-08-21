@@ -56,6 +56,10 @@ FIXES = {
     'VORr': 'VOR',
     'it\'s': 'its',
     'trafficontrollers': 'traffic controllers',
+    'landing.The': 'landing. The',
+    'AtlantiSoutheast': 'Atlantic Southeast',
+    'Potokari': 'Pokhara',
+    'Jomson': 'Jomsom',
 }
 
 if __name__ == '__main__':
@@ -111,7 +115,7 @@ if __name__ == '__main__':
             output += 'a {} flight crashed '.format(operator, )
         else:
             output += '{} flight {} crashed '.format(operator, flight, )
-        output += 'at/near {} '.format(location,) if location != '' else 'at an unknown location '
+        output += 'at/near {} '.format(location, ) if location != '' else 'at an unknown location '
         output += 'with {} aboard. '.format(aboard, )
         if fatalities > 0:
             output += 'There were {} passenger/crew fatalities. '.format(int(fatalities))
