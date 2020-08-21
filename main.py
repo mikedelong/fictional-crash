@@ -86,7 +86,10 @@ if __name__ == '__main__':
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
-        location = row['Location'].strip()
+        try:
+            location = row['Location'].strip()
+        except AttributeError as error:
+            logger.warning('location: {} strip failed.'.format(row['Location']))
         operator = row['Operator'].strip()
         for key, value in FIXES.items():
             current_summary = current_summary.replace(key, value, )
