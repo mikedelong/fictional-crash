@@ -8,7 +8,6 @@ from time import time
 from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
-from json import load
 
 
 def valid_date(arg):
@@ -112,6 +111,7 @@ if __name__ == '__main__':
         if type(flight) == str and flight != '-':
             output += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
+            # todo fix a/an
             output += 'a {} flight crashed '.format(operator, )
         else:
             output += '{} flight {} crashed '.format(operator, flight, )
