@@ -81,7 +81,6 @@ if __name__ == '__main__':
     df['day'] = df.apply(lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ), axis=1, )
 
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
-    # todo refactor and remove select_df (?)
     logger.info('crashes on this day in history: {}'.format(df[df.day == today]['day'].count()))
     for index, row in df[df.day == today].iterrows():
         aboard = int(row['Aboard'])
