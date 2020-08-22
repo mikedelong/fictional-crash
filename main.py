@@ -61,6 +61,9 @@ FIXES = {
     'AtlantiSoutheast': 'Atlantic Southeast',
     'Potokari': 'Pokhara',
     'Jomson': 'Jomsom',
+    'Tipuani (Bolivia': 'Tipuani, Bolivia',
+    'toxismoke': 'toxic smoke',
+    'reportly': 'reportedly'
 }
 
 if __name__ == '__main__':
