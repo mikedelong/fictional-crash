@@ -82,9 +82,8 @@ if __name__ == '__main__':
 
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     # todo refactor and remove select_df (?)
-    select_df = df[df.day == today]
-    logger.info('crashes on this day in history: {}'.format(len(select_df)))
-    for index, row in select_df.iterrows():
+    logger.info('crashes on this day in history: {}'.format(df[df.day == today]['day'].count()))
+    for index, row in df[df.day == today].iterrows():
         aboard = int(row['Aboard'])
         current_year = row['Date'].date().year
         current_summary = row['Summary']
