@@ -99,11 +99,10 @@ if __name__ == '__main__':
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
-        tokens = current_summary.lower().replace('’',
-                                                 ' ').replace('\'',
-                                                              ' ').replace('-',
-                                                                           ' ').replace('/',
-                                                                                        ' ').replace('..', '.').split()
+        current_summary_lower = current_summary.lower()
+        for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
+            current_summary_lower = current_summary_lower.replace(key, value)
+        tokens = current_summary_lower.split()
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
