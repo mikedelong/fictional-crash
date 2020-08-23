@@ -63,7 +63,8 @@ FIXES = {
     'Jomson': 'Jomsom',
     'Tipuani (Bolivia': 'Tipuani, Bolivia',
     'toxismoke': 'toxic smoke',
-    'reportly': 'reportedly'
+    'reportly': 'reportedly',
+    'Windshear': 'Wind shear'
 }
 
 if __name__ == '__main__':
@@ -98,8 +99,11 @@ if __name__ == '__main__':
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
-        tokens = current_summary.lower().replace('’', ' ').replace('\'', ' ').replace('-', ' ').replace('/',
-                                                                                                        ' ').split()
+        tokens = current_summary.lower().replace('’',
+                                                 ' ').replace('\'',
+                                                              ' ').replace('-',
+                                                                           ' ').replace('/',
+                                                                                        ' ').replace('..', '.').split()
         tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
