@@ -28,6 +28,8 @@ FIXES = {
     ',,': ',',
     ' , ': ', ',
     '..': '.',
+    ' .': '.',
+    ' ,': ',',
     'Destoryed': 'Destroyed',
     'classisymptoms': 'classic symptoms',
     'approah': 'approach',
