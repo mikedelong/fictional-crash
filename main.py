@@ -8,6 +8,7 @@ from time import time
 from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
+from json import load
 
 
 def valid_date(arg):
@@ -82,6 +83,9 @@ if __name__ == '__main__':
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     spell_checker = SpellChecker(case_sensitive=True, distance=2, language='en', tokenizer=None, )
+
+    with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
+        FIXES = load(fp=fixes_fp,)
 
     # Durzana ?
     spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None, )
