@@ -67,7 +67,14 @@ FIXES = {
     'Tipuani (Bolivia': 'Tipuani, Bolivia',
     'toxismoke': 'toxic smoke',
     'reportly': 'reportedly',
-    'Windshear': 'Wind shear'
+    'Windshear': 'Wind shear',
+    'softner': 'softener',
+    'traffiadvisory': 'traffic advisory',
+    'hydraulipump': 'hydraulic pump',
+    'Cap Haitien': 'Cap-Haïtien',
+    'exposive': 'explosive',
+    'Tupolov134': 'Tupolov 134',
+    'Tupolov154': 'Tupolov 154',
 }
 
 if __name__ == '__main__':
