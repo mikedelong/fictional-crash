@@ -1,4 +1,5 @@
 import datetime
+from json import load
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
@@ -8,7 +9,6 @@ from time import time
 from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
-from json import load
 
 
 def valid_date(arg):
@@ -23,7 +23,6 @@ def is_flight_level(arg):
     return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) < 400
 
 
-
 if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
@@ -31,7 +30,7 @@ if __name__ == '__main__':
     spell_checker = SpellChecker(case_sensitive=True, distance=2, language='en', tokenizer=None, )
 
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
-        FIXES = load(fp=fixes_fp,)
+        FIXES = load(fp=fixes_fp, )
 
     # Durzana ?
     spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None, )
