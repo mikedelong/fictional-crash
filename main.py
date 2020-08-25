@@ -20,7 +20,7 @@ def valid_date(arg):
 
 
 def is_flight_level(arg):
-    return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) < 400
+    return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) <= 450
 
 
 if __name__ == '__main__':
