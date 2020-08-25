@@ -74,7 +74,9 @@ if __name__ == '__main__':
             output += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
             # todo fix a/an
-            output += 'a {} flight crashed '.format(operator, )
+            output += 'a {} flight crashed '.format(operator, ) if not any(
+                [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U'}]) else 'an {} flight crashed '.format(
+                operator, )
         else:
             output += '{} flight {} crashed '.format(operator, flight, )
         output += 'at/near {} '.format(location, ) if location != '' else 'at an unknown location '
