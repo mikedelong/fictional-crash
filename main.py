@@ -73,7 +73,7 @@ if __name__ == '__main__':
         if type(flight) == str and flight != '-':
             output += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
-            output += 'a {} flight crashed '.format(operator, ) if not any(
+            output += 'a {} flight crashed '.format(operator, ) if operator.startswith('U.S.') or not any(
                 [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U'}]) else 'an {} flight crashed '.format(
                 operator, )
         else:
