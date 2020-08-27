@@ -20,6 +20,7 @@ if __name__ == '__main__':
     logger.info('got NTSB XML')
 
     df = DataFrame(data['DATA']['ROWS']['ROW'])
+    df = df.rename(axis='columns', mapper={key: key[1:] for key in data['DATA']['ROWS']['ROW'][0]}, )
     logger.info('{}'.format(len(df)))
     logger.info(list(df))
 
