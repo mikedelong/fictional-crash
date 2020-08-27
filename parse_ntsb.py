@@ -5,6 +5,7 @@ from logging import getLogger
 from time import time
 from xml.etree import ElementTree
 from xmltodict import parse
+from pandas import DataFrame
 
 if __name__ == '__main__':
     time_start = time()
@@ -14,7 +15,12 @@ if __name__ == '__main__':
     xml_url = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     http = urllib3.PoolManager()
-    response = http.request('GET', xml_url,)
+    response = http.request('GET', xml_url, )
     data = parse(response.data)
+    logger.info('got NTSB XML')
+
+    df = DataFrame(data['DATA']['ROWS']['ROW'])
+    logger.info('{}'.format(len(df)))
+    logger.info(list(df))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
