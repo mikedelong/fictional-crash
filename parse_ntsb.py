@@ -12,7 +12,7 @@ if __name__ == '__main__':
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
 
-    xml_url = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
+    xml_url = 'https://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     http = urllib3.PoolManager()
     response = http.request('GET', xml_url, )
