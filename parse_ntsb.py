@@ -1,3 +1,4 @@
+import datetime
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
@@ -7,6 +8,12 @@ from certifi import where
 from pandas import DataFrame
 from urllib3 import PoolManager
 from xmltodict import parse
+
+
+def get_day(arg):
+    pieces = arg.split('/')
+    return '{}-{}'.format(pieces[0], pieces[1])
+
 
 if __name__ == '__main__':
     time_start = time()
@@ -23,6 +30,10 @@ if __name__ == '__main__':
     df = DataFrame(data['DATA']['ROWS']['ROW'])
     df = df.rename(axis='columns', mapper={key: key[1:] for key in data['DATA']['ROWS']['ROW'][0]}, )
     logger.info('{}'.format(len(df, ), ), )
-    logger.info(list(df, ), )
+    logger.info(df.dtypes, )
+
+    df['day'] = df['EventDate'].apply(get_day, )
+
+    today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
