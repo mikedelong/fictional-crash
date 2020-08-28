@@ -1,12 +1,12 @@
-import urllib3
 from logging import INFO
 from logging import basicConfig
 from logging import getLogger
 from time import time
-from xml.etree import ElementTree
-from xmltodict import parse
+
+import urllib3
+from certifi import where
 from pandas import DataFrame
-import certifi
+from xmltodict import parse
 
 if __name__ == '__main__':
     time_start = time()
@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     xml_url = 'https://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
-    http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED', ca_certs=certifi.where(), )
+    http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED', ca_certs=where(), )
     response = http.request('GET', xml_url, )
     data = parse(response.data)
     logger.info('got NTSB XML')
