@@ -34,7 +34,6 @@ if __name__ == '__main__':
 
     df['day'] = df['EventDate'].apply(get_day, )
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
-    t0 = df.day.value_counts()
     select_df = df[df['day'] == today]
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
