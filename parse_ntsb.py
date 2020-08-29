@@ -35,5 +35,6 @@ if __name__ == '__main__':
     df['day'] = df['EventDate'].apply(get_day, )
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     select_df = df[df['day'] == today]
+    logger.info('there were {} events on this date in history'.format(len(select_df)))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
