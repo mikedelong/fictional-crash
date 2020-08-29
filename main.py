@@ -10,9 +10,6 @@ from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
 
-# import urllib
-# from xml.etree import ElementTree
-
 
 def valid_date(arg):
     try:
@@ -44,9 +41,6 @@ if __name__ == '__main__':
     df['day'] = df.apply(lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ), axis=1, )
 
     xml_url = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
-
-    # d = urllib.request.urlopen(xml_url).read()
-    # tree = ElementTree.fromstring(d)
 
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     logger.info('crashes on this day in history: {}'.format(df[df.day == today]['day'].count()))
