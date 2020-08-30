@@ -36,6 +36,7 @@ if __name__ == '__main__':
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     select_df = df[df['day'] == today]
     logger.info('there were {} events on this date in history'.format(len(select_df)))
+    select_df['year'] = select_df['EventDate'].apply(lambda x: int(x[-4:]))
     for index, row in select_df.iterrows():
         logger.info('{} {}'.format(index, row['FARDescription']))
 
