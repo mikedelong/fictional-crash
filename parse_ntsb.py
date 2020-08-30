@@ -33,6 +33,9 @@ if __name__ == '__main__':
     logger.info(df.dtypes, )
 
     df['day'] = df['EventDate'].apply(get_day, )
+    for column in ['NumberOfEngines', 'TotalFatalInjuries', 'TotalSeriousInjuries', 'TotalMinorInjuries',
+                   'TotalUninjured']:
+        df[column] = df[column].apply(lambda x: 0 if x == '' else int(x))
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     select_df = df[df['day'] == today]
     logger.info('there were {} events on this date in history'.format(len(select_df)))
