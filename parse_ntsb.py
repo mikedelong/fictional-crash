@@ -41,10 +41,10 @@ if __name__ == '__main__':
     logger.info('\n{}'.format(df.dtypes,), )
     select_df = df[df['day'] == today]
     logger.info('there were {} events on this date in history'.format(len(select_df)))
+    logger.info('of these {} had fatal injuries'.format(len(select_df[select_df['Fatal'] == 'Yes'])))
 
-    fatal_df = select_df[select_df['InjurySeverity'] != 'Non-Fatal']
-    logger.info(select_df['InjurySeverity'].value_counts().to_dict())
-    for index, row in select_df.iterrows():
-        logger.info('{} {}'.format(index, row['FARDescription']))
+    fatal_df = select_df[select_df['Fatal'] == 'Yes']
+    # for index, row in select_df.iterrows():
+    #     logger.info('{} {}'.format(index, row['FARDescription']))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
