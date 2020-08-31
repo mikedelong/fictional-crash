@@ -30,16 +30,20 @@ if __name__ == '__main__':
     df = DataFrame(data['DATA']['ROWS']['ROW'])
     df = df.rename(axis='columns', mapper={key: key[1:] for key in data['DATA']['ROWS']['ROW'][0]}, )
     logger.info('{}'.format(len(df, ), ), )
-    logger.info(df.dtypes, )
 
     df['day'] = df['EventDate'].apply(get_day, )
     for column in ['NumberOfEngines', 'TotalFatalInjuries', 'TotalSeriousInjuries', 'TotalMinorInjuries',
                    'TotalUninjured']:
         df[column] = df[column].apply(lambda x: 0 if x == '' else int(x))
     df['year'] = df['EventDate'].apply(lambda x: int(x[-4:]))
+    df['Fatal'] = df['InjurySeverity'].apply(lambda x: 'Yes' if x.startswith('Fatal') else 'No')
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
+    logger.info('\n{}'.format(df.dtypes,), )
     select_df = df[df['day'] == today]
     logger.info('there were {} events on this date in history'.format(len(select_df)))
+
+    fatal_df = select_df[select_df['InjurySeverity'] != 'Non-Fatal']
+    logger.info(select_df['InjurySeverity'].value_counts().to_dict())
     for index, row in select_df.iterrows():
         logger.info('{} {}'.format(index, row['FARDescription']))
 
