@@ -32,6 +32,7 @@ if __name__ == '__main__':
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
         FIXES = load(fp=fixes_fp, )
 
+    # Bolomon ?
     # Durzana ?
     spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None, )
 
@@ -64,7 +65,8 @@ if __name__ == '__main__':
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             current_summary_lower = current_summary_lower.replace(key, value)
         tokens = current_summary_lower.split()
-        tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.'}]) else token for token in tokens]
+        tokens = [token[:-1] if any([token.endswith(p) for p in {':', ',', '.', ')'}]) else token for token in tokens]
+        tokens = [token[1:] if any([token.startswith(p) for p in {'(', }]) else token for token in tokens]
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
