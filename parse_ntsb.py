@@ -26,25 +26,23 @@ if __name__ == '__main__':
     response = http.request('GET', xml_url, )
     data = parse(response.data, )
     logger.info('got NTSB XML')
-
     df = DataFrame(data['DATA']['ROWS']['ROW'])
     df = df.rename(axis='columns', mapper={key: key[1:] for key in data['DATA']['ROWS']['ROW'][0]}, )
     logger.info('{}'.format(len(df, ), ), )
-
     df['day'] = df['EventDate'].apply(get_day, )
     for column in ['NumberOfEngines', 'TotalFatalInjuries', 'TotalSeriousInjuries', 'TotalMinorInjuries',
                    'TotalUninjured']:
         df[column] = df[column].apply(lambda x: 0 if x == '' else int(x))
     df['year'] = df['EventDate'].apply(lambda x: int(x[-4:]))
+
     df['Fatal'] = df['InjurySeverity'].apply(lambda x: 'Yes' if x.startswith('Fatal') else 'No')
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
-    logger.info('\n{}'.format(df.dtypes,), )
+    logger.info('\n{}'.format(df.dtypes, ), )
     select_df = df[df['day'] == today]
     logger.info('there were {} events on this date in history'.format(len(select_df)))
     logger.info('of these {} had fatal injuries'.format(len(select_df[select_df['Fatal'] == 'Yes'])))
 
     fatal_df = select_df[select_df['Fatal'] == 'Yes']
-    # for index, row in select_df.iterrows():
-    #     logger.info('{} {}'.format(index, row['FARDescription']))
+    logger.info('these range from {} to {}'.format(fatal_df['year'].min(), fatal_df['year'].max()))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
