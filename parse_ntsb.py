@@ -12,7 +12,7 @@ from xmltodict import parse
 
 def get_day(arg):
     pieces = arg.split('/')
-    return '{}-{}'.format(int(pieces[0]), int(pieces[1]))
+    return '{}-{}'.format(int(pieces[0], ), int(pieces[1], ), )
 
 
 if __name__ == '__main__':
@@ -39,10 +39,10 @@ if __name__ == '__main__':
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     logger.info('\n{}'.format(df.dtypes, ), )
     select_df = df[df['day'] == today]
-    logger.info('there were {} events on this date in history'.format(len(select_df)))
-    logger.info('of these {} had fatal injuries'.format(len(select_df[select_df['Fatal'] == 'Yes'])))
+    logger.info('there were {} events on this date in history'.format(len(select_df), ), )
+    logger.info('of these {} had fatal injuries'.format(len(select_df[select_df['Fatal'] == 'Yes']), ), )
 
     fatal_df = select_df[select_df['Fatal'] == 'Yes']
-    logger.info('these range from {} to {}'.format(fatal_df['year'].min(), fatal_df['year'].max()))
+    logger.info('these range from {} to {}'.format(fatal_df['year'].min(), fatal_df['year'].max(), ), )
 
-    logger.info('total time: {:5.2f}s'.format(time() - time_start))
+    logger.info('total time: {:5.2f}s'.format(time() - time_start, ), )
