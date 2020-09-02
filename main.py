@@ -12,16 +12,16 @@ from spellchecker import SpellChecker
 from nltk import word_tokenize
 
 
+def is_flight_level(arg):
+    return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) <= 450
+
+
 def valid_date(arg):
     try:
         parse(arg)
         return True
     except ValueError:
         return False
-
-
-def is_flight_level(arg):
-    return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) <= 450
 
 
 if __name__ == '__main__':
