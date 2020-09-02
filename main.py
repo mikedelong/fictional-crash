@@ -7,9 +7,9 @@ from math import isnan
 from time import time
 
 from dateutil.parser import parse
+from nltk import word_tokenize
 from pandas import read_csv
 from spellchecker import SpellChecker
-from nltk import word_tokenize
 
 
 def is_flight_level(arg):
