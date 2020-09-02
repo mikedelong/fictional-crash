@@ -9,6 +9,7 @@ from time import time
 from dateutil.parser import parse
 from pandas import read_csv
 from spellchecker import SpellChecker
+from nltk import word_tokenize
 
 
 def valid_date(arg):
@@ -73,6 +74,7 @@ if __name__ == '__main__':
             tokens = [token[1:] if any([token.startswith(p) for p in {'(', }]) else token for token in tokens]
             misspelled = spell_checker.unknown(tokens, )
         else:
+            tokens = word_tokenize(text=current_summary_lower)
             misspelled = list()
         if len(misspelled) > 0:
             for word in misspelled:
