@@ -65,11 +65,15 @@ if __name__ == '__main__':
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             current_summary_lower = current_summary_lower.replace(key, value)
         # todo think about using the nltk word tokenizer here to simplify this code
-        tokens = current_summary_lower.split()
-        post_punctuation = {':', ',', ')', '.', ';'}
-        tokens = [token[:-1] if any([token.endswith(p) for p in post_punctuation]) else token for token in tokens]
-        tokens = [token[1:] if any([token.startswith(p) for p in {'(', }]) else token for token in tokens]
-        misspelled = spell_checker.unknown(tokens, )
+        do_split = True
+        if do_split:
+            tokens = current_summary_lower.split()
+            post_punctuation = {':', ',', ')', '.', ';'}
+            tokens = [token[:-1] if any([token.endswith(p) for p in post_punctuation]) else token for token in tokens]
+            tokens = [token[1:] if any([token.startswith(p) for p in {'(', }]) else token for token in tokens]
+            misspelled = spell_checker.unknown(tokens, )
+        else:
+            misspelled = list()
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word), ], ):
