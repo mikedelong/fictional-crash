@@ -66,7 +66,7 @@ if __name__ == '__main__':
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             current_summary_lower = current_summary_lower.replace(key, value)
         # todo think about using the nltk word tokenizer here to simplify this code
-        do_split = True
+        do_split = False
         if do_split:
             tokens = current_summary_lower.split()
             post_punctuation = {':', ',', ')', '.', ';'}
@@ -75,10 +75,11 @@ if __name__ == '__main__':
             misspelled = spell_checker.unknown(tokens, )
         else:
             tokens = word_tokenize(text=current_summary_lower)
-            misspelled = list()
+            misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
-                if not any([word.replace(',', '').isnumeric(), valid_date(word), is_flight_level(word), ], ):
+                if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
+                            valid_date(word), is_flight_level(word), ], ):
                     logger.warning('misspelled: {}'.format(word))
 
         output = 'In {} '.format(current_year, )
