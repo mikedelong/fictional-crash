@@ -65,16 +65,8 @@ if __name__ == '__main__':
         current_summary_lower = current_summary.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             current_summary_lower = current_summary_lower.replace(key, value)
-        do_split = False
-        if do_split:
-            tokens = current_summary_lower.split()
-            post_punctuation = {':', ',', ')', '.', ';'}
-            tokens = [token[:-1] if any([token.endswith(p) for p in post_punctuation]) else token for token in tokens]
-            tokens = [token[1:] if any([token.startswith(p) for p in {'(', }]) else token for token in tokens]
-            misspelled = spell_checker.unknown(tokens, )
-        else:
-            tokens = word_tokenize(text=current_summary_lower)
-            misspelled = spell_checker.unknown(tokens, )
+        tokens = word_tokenize(text=current_summary_lower)
+        misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
