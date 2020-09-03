@@ -65,7 +65,6 @@ if __name__ == '__main__':
         current_summary_lower = current_summary.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             current_summary_lower = current_summary_lower.replace(key, value)
-        # todo think about using the nltk word tokenizer here to simplify this code
         do_split = False
         if do_split:
             tokens = current_summary_lower.split()
