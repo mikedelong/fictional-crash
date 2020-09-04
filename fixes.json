@@ -24,6 +24,7 @@
     "  - Taxi": "",
     " - Air Taxi": "",
     "Air Taxi - ": "",
+    "Charter - ": "",
     "Monseny": "Montseny",
     "Agusta": "Augusta",
     "Rilyadh": "Riyadh",
@@ -97,5 +98,13 @@
     "Maraba": "Marabá",
     "Belem": "Belém",
     "engine.Failure": "engine. Failure",
-    "Catastrophifailure": "Catastrophic failure"
+    "Catastrophifailure": "Catastrophic failure",
+    "electrielevator": "electric elevator",
+    "flilght": "flight",
+    "collilded" : "collided",
+    "unpressurised": "unpressurized",
+    "hypobarihypoxia": "hypobaric hypoxia",
+    "densly": "densely",
+    " / Private": "",
+    "Private - ": ""
 }
