@@ -86,8 +86,8 @@ if __name__ == '__main__':
         output += 'with {} aboard. '.format(aboard, )
         output += 'There were {} passenger/crew fatalities. '.format(
             int(fatalities)) if fatalities > 0 else 'There were no passenger/crew fatalities. '
-        if ground > 0:
-            output += 'There were {} ground fatalities. '.format(int(fatalities))
+        output += 'There were {} ground fatalities. '.format(int(fatalities)) if ground > 0 else ''
+
         if len(current_summary) > 0:
             output += current_summary
 
