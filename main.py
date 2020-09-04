@@ -70,7 +70,7 @@ if __name__ == '__main__':
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
-                            valid_date(word), is_flight_level(word), ], ):
+                            word.replace('nm', '').isnumeric(), valid_date(word), is_flight_level(word), ], ):
                     logger.warning('misspelled: {}'.format(word))
 
         output = 'In {} '.format(current_year, )
