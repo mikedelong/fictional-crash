@@ -84,10 +84,8 @@ if __name__ == '__main__':
             output += '{} flight {} crashed '.format(operator, flight, )
         output += 'near {} '.format(location, ) if location != '' else 'at an unknown location '
         output += 'with {} aboard. '.format(aboard, )
-        if fatalities > 0:
-            output += 'There were {} passenger/crew fatalities. '.format(int(fatalities))
-        else:
-            output += 'There were no passenger/crew fatalities. '
+        output += 'There were {} passenger/crew fatalities. '.format(
+            int(fatalities)) if fatalities > 0 else 'There were no passenger/crew fatalities. '
         if ground > 0:
             output += 'There were {} ground fatalities. '.format(int(fatalities))
         if len(current_summary) > 0:
