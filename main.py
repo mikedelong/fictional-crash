@@ -12,6 +12,10 @@ from pandas import read_csv
 from spellchecker import SpellChecker
 
 
+def is_elevation(arg):
+    return arg.endswith('ft') and arg[:-2].replace(',', '').isnumeric()
+
+
 def is_flight_level(arg):
     return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) <= 450
 
