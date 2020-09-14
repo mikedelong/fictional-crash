@@ -13,7 +13,8 @@ from spellchecker import SpellChecker
 
 
 def is_elevation(arg):
-    return arg.endswith('ft') and arg[:-2].replace(',', '').isnumeric()
+    return (arg.endswith('ft') and arg[:-2].replace(',', '').isnumeric()) or (
+                arg.endswith('m') and arg[:-1].replace(',', '').isnumeric())
 
 
 def is_flight_level(arg):
