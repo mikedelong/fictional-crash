@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     logger.info('read fixes')
     with open(encoding='utf-8', file='./fixes.json', mode='w', ) as fixes_fp:
-        dump(obj=fixes, fp=fixes_fp, ensure_ascii=False, check_circular=False, allow_nan=False, indent=True,
+        dump(allow_nan=False, check_circular=False, ensure_ascii=False, fp=fixes_fp, indent=True, obj=fixes,
              sort_keys=True, )
     logger.info('wrote sorted fixes')
 
