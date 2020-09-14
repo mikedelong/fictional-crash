@@ -20,4 +20,11 @@ if __name__ == '__main__':
              sort_keys=True, )
     logger.info('wrote sorted fixes')
 
+    with open(encoding='utf-8', file='./words.json', mode='r', ) as words_fp:
+        words = load(fp=words_fp, )
+    words = sorted(words)
+    with open(encoding='utf-8', file='./words.json', mode='w', ) as words_fp:
+        dump(fp=words_fp, indent=True, obj=words, ensure_ascii=False, )
+    logger.info('wrote sorted words')
+
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
