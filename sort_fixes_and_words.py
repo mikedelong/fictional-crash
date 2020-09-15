@@ -19,6 +19,7 @@ if __name__ == '__main__':
         dump(allow_nan=False, check_circular=False, ensure_ascii=False, fp=fixes_fp, indent=True, obj=fixes,
              sort_keys=True, )
     logger.info('wrote sorted fixes')
+    del fixes_fp
 
     with open(encoding='utf-8', file='./words.json', mode='r', ) as words_fp:
         words = load(fp=words_fp, )
@@ -26,5 +27,6 @@ if __name__ == '__main__':
     with open(encoding='utf-8', file='./words.json', mode='w', ) as words_fp:
         dump(ensure_ascii=False, fp=words_fp, indent=True, obj=words, )
     logger.info('wrote sorted words')
+    del words_fp
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
