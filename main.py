@@ -14,7 +14,7 @@ from spellchecker import SpellChecker
 
 def is_elevation(arg):
     return (arg.endswith('ft') and arg[:-2].replace(',', '').isnumeric()) or (
-                arg.endswith('m') and arg[:-1].replace(',', '').isnumeric())
+            arg.endswith('m') and arg[:-1].replace(',', '').isnumeric())
 
 
 def is_flight_level(arg):
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     logger.info('crashes on this day in history: {}'.format(df[df.day == today]['day'].count()))
     for index, row in df[df.day == today].iterrows():
-        aboard = 'an unknown number' if isnan(row['Aboard']) else  int(row['Aboard'])
+        aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
         current_summary = row['Summary']
         if type(current_summary) == float:
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         flight = row['Flight #']
         ground = row['Ground']
         location = row['Location'].strip() if type(row['Location']) == str else ''
-        operator = row['Operator'].strip() if type(row['Operator']) == str else ''
+        operator = row['Operator'].strip() if type(row['Operator']) == str else 'an unknown operator'
         for key, value in FIXES.items():
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
