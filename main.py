@@ -94,7 +94,7 @@ if __name__ == '__main__':
             output += 'There were {} passenger/crew fatalities. '.format(int(fatalities))
         elif int(fatalities) == 1:
             output += 'There was 1 passenger/crew fatality. '
-        output += 'There were {} ground fatalities. '.format(int(fatalities)) if ground > 0 else ''
+        output += 'There were {} ground fatalities. '.format(int(ground)) if ground > 0 else ''
 
         if len(current_summary) > 0:
             output += current_summary
