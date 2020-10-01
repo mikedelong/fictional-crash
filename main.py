@@ -96,7 +96,9 @@ if __name__ == '__main__':
             output += 'There were {} passenger/crew fatalities. '.format(int(fatalities, ), )
         elif int(fatalities) == 1:
             output += 'There was 1 passenger/crew fatality. '
-        if ground > 1:
+        if isnan(ground):
+            output += 'The number of ground fatalities is unknown. '
+        elif ground > 1:
             output += 'There were {} ground fatalities. '.format(int(ground, ), )
         elif int(ground) == 1:
             output += 'There was 1 ground fatality. '
