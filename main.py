@@ -77,7 +77,7 @@ if __name__ == '__main__':
                 if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
                             word.replace('nm', '').isnumeric(), valid_date(word), is_flight_level(word),
                             is_elevation(word)], ):
-                    logger.warning('misspelled: {}'.format(word))
+                    logger.warning('misspelled: {}'.format(word, ), )
 
         output = 'In {} '.format(current_year, )
         if type(flight) == str and flight != '-':
@@ -90,18 +90,20 @@ if __name__ == '__main__':
             output += '{} flight {} crashed '.format(operator, flight, )
         output += 'near {} '.format(location, ) if location != '' else 'at an unknown location '
         output += 'with {} aboard. '.format(aboard, )
-        if fatalities > 1:
-            output += 'There were {} passenger/crew fatalities. '.format(int(fatalities))
+        if isnan(fatalities):
+            output += 'The number of passenger/crew fatalities is unknown. '
+        elif fatalities > 1:
+            output += 'There were {} passenger/crew fatalities. '.format(int(fatalities, ), )
         elif int(fatalities) == 1:
             output += 'There was 1 passenger/crew fatality. '
         if ground > 1:
-            output += 'There were {} ground fatalities. '.format(int(ground))
+            output += 'There were {} ground fatalities. '.format(int(ground, ), )
         elif int(ground) == 1:
             output += 'There was 1 ground fatality. '
 
         if len(current_summary) > 0:
             output += current_summary
 
-        logger.info('{}: {}'.format(len(output), output))
+        logger.info('{}: {}'.format(len(output, ), output, ))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
