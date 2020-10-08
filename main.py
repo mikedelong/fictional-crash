@@ -81,6 +81,7 @@ if __name__ == '__main__':
 
         output = 'In {} '.format(current_year, )
         if type(flight) == str and flight != '-':
+            flight = flight.replace(' / -', '')
             output += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
             output += 'a {} flight crashed '.format(operator, ) if operator.startswith('U.S.') or not any(
