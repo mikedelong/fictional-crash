@@ -12,6 +12,10 @@ from pandas import read_csv
 from spellchecker import SpellChecker
 
 
+def is_distance(arg):
+    return arg.endswith('km') and arg[:-2].isnumeric()
+
+
 def is_elevation(arg):
     return (arg.endswith('ft') and arg[:-2].replace(',', '').isnumeric()) or (
             arg.endswith('m') and arg[:-1].replace(',', '').isnumeric())
@@ -76,7 +80,7 @@ if __name__ == '__main__':
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
                             word.replace('nm', '').isnumeric(), valid_date(word), is_flight_level(word),
-                            is_elevation(word)], ):
+                            is_elevation(word), is_distance(word), ], ):
                     logger.warning('misspelled: {}'.format(word, ), )
 
         output = 'In {} '.format(current_year, )
