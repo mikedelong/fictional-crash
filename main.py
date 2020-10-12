@@ -93,7 +93,12 @@ if __name__ == '__main__':
                 operator, )
         else:
             output += '{} flight {} crashed '.format(operator, flight, )
-        output += 'near {} '.format(location, ) if location != '' else 'at an unknown location '
+        if location == '':
+            output += 'at an unknown location '
+        elif location.startswith('Near '):
+            output += 'near {} '.format(location.replace('Near ', ''))
+        else:
+            output += 'near {} '.format(location, )
         output += 'with {} aboard. '.format(aboard, )
         if isnan(fatalities):
             output += 'The number of passenger/crew fatalities is unknown. '
