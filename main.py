@@ -97,6 +97,8 @@ if __name__ == '__main__':
             output += 'at an unknown location '
         elif location.startswith('Near '):
             output += 'near {} '.format(location.replace('Near ', ''))
+        elif location.startswith('Off '):
+            output += 'off {} '.format(location.replace('Off ', ''))
         else:
             output += 'near {} '.format(location, )
         output += 'with {} aboard. '.format(aboard, )
