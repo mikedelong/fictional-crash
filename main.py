@@ -95,6 +95,8 @@ if __name__ == '__main__':
             output += '{} flight {} crashed '.format(operator, flight, )
         if location == '':
             output += 'at an unknown location '
+        elif location.startswith('Between '):
+            output += 'between {} '.format(location.replace('Between ', ''))
         elif location.startswith('Near '):
             output += 'near {} '.format(location.replace('Near ', ''))
         elif location.startswith('Off '):
