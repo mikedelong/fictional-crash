@@ -66,7 +66,7 @@ if __name__ == '__main__':
         flight = row['Flight #']
         ground = row['Ground']
         location = row['Location'].strip() if type(row['Location']) == str else ''
-        operator = row['Operator'].strip() if type(row['Operator']) == str else 'an unknown operator'
+        operator = row['Operator'].strip() if type(row['Operator']) == str else 'unknown operator'
         for key, value in FIXES.items():
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
@@ -89,7 +89,7 @@ if __name__ == '__main__':
             output += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
             output += 'a {} flight crashed '.format(operator, ) if operator.startswith('U.S.') or not any(
-                [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U'}]) else 'an {} flight crashed '.format(
+                [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U', 'u'}]) else 'an {} flight crashed '.format(
                 operator, )
         else:
             output += '{} flight {} crashed '.format(operator, flight, )
