@@ -24,6 +24,7 @@
  "Airport.The": "Airport. The",
  "Alcoholiimpairment": "Alcoholic impairment",
  "AltusFlying Service": "Altus Flying Service",
+ "Antarctiroute": "Antarctic route",
  "ArctiPacific": "Arctic Pacific",
  "ArctiTransportation": "Arctic Transportation",
  "Arctitwilight": "arctic twilight",
@@ -79,6 +80,7 @@
  "GPWS": "ground proximity warning system",
  "Gastonia Aviation - Taxi": "Gastonia Aviation",
  "Gauhati": "Guwahati",
+ "Glow Air/Air Castle - Charter": "Glow Air/Air Castle",
  "Halkidiki": "Chalkidiki",
  "Helgoland Island": "Heligoland Island",
  "Heli-USA Airways, In- Air Taxi": "Heli-USA Airways",
@@ -384,5 +386,7 @@
  "unrealistiand": "unrealistic and",
  "unsuccessfull": "unsuccessful",
  "visiblility": "visibility",
- "wouldn't": "would not"
+ "wouldn't": "would not",
+   "Eabove ground levele Aviation": "Eagle Aviation"
+
 }
