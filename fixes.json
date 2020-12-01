@@ -42,6 +42,7 @@
  "Blansummit": "Blanc summit",
  "Botan Bay": "Botany Bay",
  "Bronislaw Hubermann": "Bronislaw Huberman",
+ "Bubank": "Burbank",
  "CAAC Air TraffiManagement Bureau": "CAAC Air Traffic Management Bureau",
  "Caballochoa": "Caballococha",
  "Can Tho": "Cần Thơ",
@@ -130,6 +131,7 @@
  "Monaquimbundo": "Mona Quimbundo",
  "Monseny": "Montseny",
  "Mount Arey": "Mount Airy",
+ "Mountain,13": "Mountain, 13",
  "Mourino": "Mouriño",
  "Mt. Baco": "Mount Baco",
  "Mt. Capanne": "Mount Capanne",
@@ -241,6 +243,7 @@
  "approacing": "approaching",
  "approah": "approach",
  "atmosphericonditions": "atmospheric conditions",
+ "atmospheriicing": "atmospheric icing",
  "attemping": "attempting",
  "attemptin": "attempting",
  "attemptingg": "attempting",
@@ -393,5 +396,6 @@
  "unsuccessfull": "unsuccessful",
  "visiblility": "visibility",
  "wouldn't": "would not",
- "Eabove ground levele Aviation": "Eagle Aviation"
+ "Eabove ground levele Aviation": "Eagle Aviation",
+ "Eabove ground levele Mountain": "Eagle Mountain"
 }
