@@ -104,6 +104,7 @@
  "Jebel Hilal": "Mount Helal",
  "Jomson": "Jomsom",
  "Ju88, German military": "Junkers Ju 88 German military",
+ "Juan de la Cieva": "Juan de la Cierva",
  "Kabuleti": "Kobuleti",
  "Karatepa": "Karatepe",
  "Kardla": "Kärdla",
@@ -195,6 +196,7 @@
  "Rwy": "Runway",
  "Sabrejet": "Sabre jet",
  "Sainte Lucia": "Saint Lucia",
+ "Sandinistan": "Sandinista",
  "SceniAir": "Scenic Air",
  "Serra de Cachimbo": "Serra do Cachimbo",
  "Shanghi": "Shanghai",
@@ -242,7 +244,6 @@
  "aerodynamistall": "aerodynamic stall",
  "aft c.g.": "aft center of gravity",
  "after taking offsea after taking off": "after taking off",
- "agl": "above ground level",
  "airborn": "airborne",
  "airbornee": "airborne",
  "aircrafted": "aircraft",
@@ -415,7 +416,5 @@
  "unrealistiand": "unrealistic and",
  "unsuccessfull": "unsuccessful",
  "visiblility": "visibility",
- "wouldn't": "would not",
- "Eabove ground levele Aviation": "Eagle Aviation",
- "Eabove ground levele Mountain": "Eagle Mountain"
+ "wouldn't": "would not"
 }
