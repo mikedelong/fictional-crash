@@ -88,6 +88,7 @@
  "Gastonia Aviation - Taxi": "Gastonia Aviation",
  "Gauhati": "Guwahati",
  "Glow Air/Air Castle - Charter": "Glow Air/Air Castle",
+ "Goma.The": "Goma. The",
  "Halkidiki": "Chalkidiki",
  "Helgoland Island": "Heligoland Island",
  "Heli-USA Airways, In- Air Taxi": "Heli-USA Airways",
@@ -151,6 +152,7 @@
  "Mt. Ingeli": "Ingeli Mountain",
  "Mt. Kantakan": "Mount Kanlaon",
  "Mt. Tete de L'Obiou": "Grande Tête de l'Obiou",
+ "Munay": "Gurain",
  "Murtala Muhammad": "Murtala Muhammed",
  "Mys-Kammenyj": "Mys-Kamennyy",
  "Ndjamera": "N'Djamena",
@@ -176,6 +178,8 @@
  "Paukn Air": "PauknAir",
  "People's Army/ Peoples Air Force": "People's Army",
  "Phillipines": "Philippines",
+ "Phonesavanh": "Phonsavan",
+ "Phongsavanh": "Phonsavan",
  "Point-Lebel": "Pointe-Lebel",
  "PolytechniCollege": "Polytechnic College",
  "Poor Air TraffiControl": "Poor air traffic control",
@@ -428,9 +432,5 @@
  "unsuccessfull": "unsuccessful",
  "vallet": "valet",
  "visiblility": "visibility",
- "wouldn't": "would not",
- "Munay": "Gurain",
- "Goma.The": "Goma. The",
- "Phonesavanh": "Phonsavan",
- "Phongsavanh": "Phonsavan"
+ "wouldn't": "would not"
 }
