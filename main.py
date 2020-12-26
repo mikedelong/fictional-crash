@@ -13,7 +13,7 @@ from spellchecker import SpellChecker
 
 
 def is_distance(arg):
-    return arg.endswith('km') and arg[:-2].isnumeric()
+    return arg.endswith('km') and arg[:-2].replace('.', '').isnumeric()
 
 
 def is_elevation(arg):
