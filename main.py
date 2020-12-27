@@ -61,8 +61,7 @@ if __name__ == '__main__':
         current_summary = row['Summary']
         if type(current_summary) == float:
             current_summary = ''
-        current_summary = current_summary.strip()
-        current_summary = ' '.join(current_summary.split())
+        current_summary = ' '.join(current_summary.strip().split())
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
