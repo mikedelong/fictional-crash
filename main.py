@@ -120,6 +120,8 @@ if __name__ == '__main__':
         if len(current_summary) > 0:
             output += current_summary
 
+        output = ' '.join(output.split())
+
         logger.info('{}: {}'.format(len(output, ), output, ))
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
