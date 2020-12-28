@@ -101,6 +101,8 @@ if __name__ == '__main__':
             output += 'near {} '.format(location.replace('Near ', ''))
         elif location.startswith('Off '):
             output += 'off {} '.format(location.replace('Off ', ''))
+        elif location.startswith('Over '):
+            output += 'over {} '.format(location.replace('Over ', ''))
         else:
             output += 'near {} '.format(location, )
         output += 'with {} aboard. '.format(aboard, )
