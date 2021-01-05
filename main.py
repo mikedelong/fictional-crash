@@ -25,6 +25,10 @@ def is_flight_level(arg):
     return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) <= 450
 
 
+def is_speed(arg):
+    return arg.endswith('kts') and arg[:-3].replace('.', '', 1, ).isnumeric()
+
+
 def valid_date(arg):
     try:
         parse(arg)
@@ -80,7 +84,7 @@ if __name__ == '__main__':
             for word in misspelled:
                 if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
                             word.replace('nm', '').isnumeric(), valid_date(word), is_flight_level(word),
-                            is_elevation(word), is_distance(word), ], ):
+                            is_elevation(word), is_distance(word), is_speed(word)], ):
                     logger.warning('misspelled: {}'.format(word, ), )
 
         output = 'In {} '.format(current_year, )
