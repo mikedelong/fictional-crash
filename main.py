@@ -82,9 +82,10 @@ if __name__ == '__main__':
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
-                if not any([word.replace(',', '').isnumeric(), word.replace('.', '').isnumeric(),
-                            word.replace('nm', '').isnumeric(), valid_date(word), is_flight_level(word),
-                            is_elevation(word), is_distance(word), is_speed(word)], ):
+                if not any(
+                        [is_distance(word), is_elevation(word), is_flight_level(word), is_speed(word), valid_date(word),
+                         word.replace('nm', '').isnumeric(), word.replace('.', '').isnumeric(),
+                         word.replace(',', '').isnumeric(), ], ):
                     logger.warning('misspelled: {}'.format(word, ), )
 
         output = 'In {} '.format(current_year, )
