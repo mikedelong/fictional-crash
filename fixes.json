@@ -58,6 +58,7 @@
  "Balsalt": "Basalt",
  "Banahaur": "Banahaw",
  "Batagaj": "Batagay",
+ "BattleMountain": "Battle Mountain",
  "Belem": "Belém",
  "Besar,Thailand": "Besar, Thailand",
  "Binh Khe": "Bình Khê",
@@ -147,6 +148,7 @@
  "Hoikow": "Haikow",
  "Hommelfjell": "Hummelfjell",
  "Houma Louisiana": "Houma, Louisiana",
+ "Huanuco": "Huánuco",
  "HudsonRiver": "Hudson River",
  "Hutska Hora": "Huťská hora",
  "IL76": "Il-76",
@@ -383,6 +385,7 @@
  "apporach": "approach",
  "approacing": "approaching",
  "approah": "approach",
+ "atlitiude": "altitude",
  "atmosphericonditions": "atmospheric conditions",
  "atmospheriicing": "atmospheric icing",
  "attemping": "attempting",
@@ -490,6 +493,7 @@
  "initital": "initial",
  "injested": "ingested",
  "insturment": "instrument",
+ "insuffuciency": "insufficiency",
  "into Pinetos Peak": "into Los Pinetos Peak",
  "isssued": "issued",
  "it scheduled landing": "its scheduled landing",
@@ -601,5 +605,6 @@
  "vallet": "valet",
  "visiblility": "visibility",
  "which laned safely": "which landed safely",
- "wouldn't": "would not"
+ "wouldn't": "would not",
+ "Israel Air Force /Israel Air Force": "Israel Air Force / Israel Air Force"
 }
