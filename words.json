@@ -28,6 +28,7 @@
  "AOM",
  "ATCs",
  "ATR",
+ "Aad",
  "Aaliyah",
  "Abkhazi",
  "Adak",
@@ -58,6 +59,7 @@
  "Azari",
  "Azur",
  "Aéreas",
+ "Babaker",
  "Baco",
  "Bacolod",
  "Baessell",
@@ -129,6 +131,7 @@
  "Chachapoyas",
  "Chalkidiki",
  "Chaparra",
+ "Chaperi",
  "Charleys",
  "Charlo",
  "Chiclayo",
@@ -765,8 +768,5 @@
  "windmilling",
  "windshear",
  "windsock",
- "yawed",
- "Chaperi",
- "Aad",
- "Babaker"
+ "yawed"
 ]
