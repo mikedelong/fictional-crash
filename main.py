@@ -41,7 +41,7 @@ if __name__ == '__main__':
     time_start = time()
     logger = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
-    spell_checker = SpellChecker(case_sensitive=True, distance=2, language='en', tokenizer=None, )
+    spell_checker = SpellChecker(case_sensitive=True, distance=1, language='en', tokenizer=None, )
 
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
         FIXES = load(fp=fixes_fp, )
