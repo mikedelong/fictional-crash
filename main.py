@@ -46,8 +46,6 @@ if __name__ == '__main__':
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
         FIXES = load(fp=fixes_fp, )
 
-    # Bolomon ?
-    # Durzana ?
     spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None, )
 
     # todo add data after June 2009
