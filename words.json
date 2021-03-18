@@ -396,6 +396,7 @@
  "Longreach",
  "Lotru",
  "Luang",
+ "Lubango",
  "Lucapa",
  "Luena",
  "Lukla",
@@ -420,6 +421,7 @@
  "Manco",
  "Manibagi",
  "Manizales",
+ "Manunggal",
  "Manzala",
  "Manzanillo",
  "Manzano",
@@ -853,6 +855,7 @@
  "prelanding",
  "pressurization",
  "radioing",
+ "recalculate",
  "refueled",
  "refueling",
  "reinstall",
@@ -881,6 +884,7 @@
  "stablizer",
  "stall/spin",
  "studs/engine",
+ "talkativeness",
  "terrorist-proof",
  "through-bolts",
  "transitioned",
@@ -911,9 +915,5 @@
  "windmilling",
  "windshear",
  "windsock",
- "yawed",
- "Manunggal",
- "talkativeness",
- "recalculate",
- "Lubango"
+ "yawed"
 ]
