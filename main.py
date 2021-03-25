@@ -46,8 +46,8 @@ if __name__ == '__main__':
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
         FIXES = load(fp=fixes_fp, )
 
-    spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8',
-                                                tokenizer=None, )
+    spell_checker.word_frequency.load_text_file(
+        encoding='utf-8', filename='./words.json', tokenizer=None, )
 
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
@@ -85,9 +85,10 @@ if __name__ == '__main__':
         if len(misspelled) > 0:
             for word in misspelled:
                 if not any(
-                        [is_distance(word), is_elevation(word), is_flight_level(word), is_speed(word), valid_date(word),
-                         word.replace('nm', '').isnumeric(), word.replace('.', '').isnumeric(),
-                         word.replace(',', '').isnumeric(), ], ):
+                        [is_distance(word), is_elevation(word), is_flight_level(word),
+                         is_speed(word), valid_date(word), word.replace('nm', '').isnumeric(),
+                         word.replace('.', '').isnumeric(), word.replace(',', '').isnumeric(), ],
+                ):
                     logger.warning('misspelled: {}'.format(word, ), )
 
         output = 'In {} '.format(current_year, )
