@@ -46,7 +46,8 @@ if __name__ == '__main__':
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
         FIXES = load(fp=fixes_fp, )
 
-    spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8', tokenizer=None, )
+    spell_checker.word_frequency.load_text_file(filename='./words.json', encoding='utf-8',
+                                                tokenizer=None, )
 
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
