@@ -132,6 +132,6 @@ if __name__ == '__main__':
 
         output = ' '.join(output.split())
 
-        logger.info('{}: {}'.format(len(output, ), output, ))
+        logger.info('%d: %s', len(output, ), output, )
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
