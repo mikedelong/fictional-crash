@@ -52,7 +52,10 @@ if __name__ == '__main__':
     # todo add data after June 2009
     url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
     df = read_csv(filepath_or_buffer=url, parse_dates=['Date'])
-    df['day'] = df.apply(lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ), axis=1, )
+    df['day'] = df.apply(
+        axis=1,
+        func=lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ),
+    )
 
     xml_url = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
