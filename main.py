@@ -91,47 +91,47 @@ if __name__ == '__main__':
                 ):
                     logger.warning('misspelled: {}'.format(word, ), )
 
-        output = 'In {} '.format(current_year, )
+        OUTPUT = 'In {} '.format(current_year, )
         if type(flight) == str and flight != '-':
             flight = flight.replace(' / -', '')
-            output += '{} flight {} crashed '.format(operator, flight, )
+            OUTPUT += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
-            output += 'a {} flight crashed '.format(operator, ) if operator.startswith('U.S.') or not any(
+            OUTPUT += 'a {} flight crashed '.format(operator, ) if operator.startswith('U.S.') or not any(
                 [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U', 'u'}]) else 'an {} flight crashed '.format(
                 operator, )
         else:
-            output += '{} flight {} crashed '.format(operator, flight, )
+            OUTPUT += '{} flight {} crashed '.format(operator, flight, )
         if location == '':
-            output += 'at an unknown location '
+            OUTPUT += 'at an unknown location '
         elif location.startswith('Between '):
-            output += 'between {} '.format(location.replace('Between ', ''))
+            OUTPUT += 'between {} '.format(location.replace('Between ', ''))
         elif location.startswith('Near '):
-            output += 'near {} '.format(location.replace('Near ', ''))
+            OUTPUT += 'near {} '.format(location.replace('Near ', ''))
         elif location.startswith('Off '):
-            output += 'off {} '.format(location.replace('Off ', ''))
+            OUTPUT += 'off {} '.format(location.replace('Off ', ''))
         elif location.startswith('Over '):
-            output += 'over {} '.format(location.replace('Over ', ''))
+            OUTPUT += 'over {} '.format(location.replace('Over ', ''))
         else:
-            output += 'near {} '.format(location, )
-        output += 'with {} aboard. '.format(aboard, )
+            OUTPUT += 'near {} '.format(location, )
+        OUTPUT += 'with {} aboard. '.format(aboard, )
         if isnan(fatalities):
-            output += 'The number of passenger/crew fatalities is unknown. '
+            OUTPUT += 'The number of passenger/crew fatalities is unknown. '
         elif fatalities > 1:
-            output += 'There were {} passenger/crew fatalities. '.format(int(fatalities, ), )
+            OUTPUT += 'There were {} passenger/crew fatalities. '.format(int(fatalities, ), )
         elif int(fatalities) == 1:
-            output += 'There was 1 passenger/crew fatality. '
+            OUTPUT += 'There was 1 passenger/crew fatality. '
         if isnan(ground):
-            output += 'The number of ground fatalities is unknown. '
+            OUTPUT += 'The number of ground fatalities is unknown. '
         elif ground > 1:
-            output += 'There were {} ground fatalities. '.format(int(ground, ), )
+            OUTPUT += 'There were {} ground fatalities. '.format(int(ground, ), )
         elif int(ground) == 1:
-            output += 'There was 1 ground fatality. '
+            OUTPUT += 'There was 1 ground fatality. '
 
         if len(current_summary) > 0:
-            output += current_summary
+            OUTPUT += current_summary
 
-        output = ' '.join(output.split())
+        OUTPUT = ' '.join(OUTPUT.split())
 
-        logger.info('%d: %s', len(output, ), output, )
+        logger.info('%d: %s', len(OUTPUT, ), OUTPUT, )
 
     logger.info('total time: {:5.2f}s'.format(time() - time_start))
