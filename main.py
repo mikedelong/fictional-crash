@@ -89,7 +89,7 @@ if __name__ == '__main__':
                          is_speed(word), valid_date(word), word.replace('nm', '').isnumeric(),
                          word.replace('.', '').isnumeric(), word.replace(',', '').isnumeric(), ],
                 ):
-                    logger.warning('misspelled: {}'.format(word, ), )
+                    logger.warning('misspelled: %s', word)
 
         OUTPUT = 'In {} '.format(current_year, )
         if isinstance(flight, str) and flight != '-':
