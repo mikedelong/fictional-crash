@@ -92,7 +92,7 @@ if __name__ == '__main__':
                     logger.warning('misspelled: {}'.format(word, ), )
 
         OUTPUT = 'In {} '.format(current_year, )
-        if type(flight) == str and flight != '-':
+        if isinstance(flight, str) and flight != '-':
             flight = flight.replace(' / -', '')
             OUTPUT += '{} flight {} crashed '.format(operator, flight, )
         elif flight == '-' or isnan(float(flight, ), ):
