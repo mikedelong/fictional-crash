@@ -77,10 +77,10 @@ if __name__ == '__main__':
             current_summary = current_summary.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
-        current_summary_lower = current_summary.lower()
+        CURRENT_SUMMARY_LOWER = current_summary.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
-            current_summary_lower = current_summary_lower.replace(key, value)
-        tokens = word_tokenize(text=current_summary_lower)
+            CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
+        tokens = word_tokenize(text=CURRENT_SUMMARY_LOWER)
         misspelled = spell_checker.unknown(tokens, )
         if len(misspelled) > 0:
             for word in misspelled:
