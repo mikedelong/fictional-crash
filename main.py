@@ -64,20 +64,20 @@ if __name__ == '__main__':
     for index, row in df[df.day == today].iterrows():
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
-        current_summary = row['Summary']
-        if type(current_summary) == float:
-            current_summary = ''
-        current_summary = ' '.join(current_summary.strip().split())
+        CURRENT_SUMMARY = row['Summary']
+        if type(CURRENT_SUMMARY) == float:
+            CURRENT_SUMMARY = ''
+        CURRENT_SUMMARY = ' '.join(CURRENT_SUMMARY.strip().split())
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
         location = row['Location'].strip() if type(row['Location']) == str else ''
         operator = row['Operator'].strip() if type(row['Operator']) == str else 'unknown operator'
         for key, value in FIXES.items():
-            current_summary = current_summary.replace(key, value, )
+            CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
-        CURRENT_SUMMARY_LOWER = current_summary.lower()
+        CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
         tokens = word_tokenize(text=CURRENT_SUMMARY_LOWER)
@@ -127,8 +127,8 @@ if __name__ == '__main__':
         elif int(ground) == 1:
             OUTPUT += 'There was 1 ground fatality. '
 
-        if len(current_summary) > 0:
-            OUTPUT += current_summary
+        if len(CURRENT_SUMMARY) > 0:
+            OUTPUT += CURRENT_SUMMARY
 
         OUTPUT = ' '.join(OUTPUT.split())
 
