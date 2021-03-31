@@ -71,7 +71,7 @@ if __name__ == '__main__':
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
-        location = row['Location'].strip() if type(row['Location']) == str else ''
+        location = row['Location'].strip() if isinstance(row['Location'], str) == str else ''
         operator = row['Operator'].strip() if isinstance(row['Operator'], str) else 'unknown operator'
         for key, value in FIXES.items():
             CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
