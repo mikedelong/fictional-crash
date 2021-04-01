@@ -60,7 +60,7 @@ if __name__ == '__main__':
     xml_url = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     today = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
-    logger.info('crashes on this day in history: {}'.format(df[df.day == today]['day'].count()))
+    logger.info('crashes on this day in history: %d', df[df.day == today]['day'].count())
     for index, row in df[df.day == today].iterrows():
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
