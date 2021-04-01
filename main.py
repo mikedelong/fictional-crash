@@ -65,9 +65,8 @@ if __name__ == '__main__':
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
         CURRENT_SUMMARY = row['Summary']
-        if type(CURRENT_SUMMARY) == float:
-            CURRENT_SUMMARY = ''
-        CURRENT_SUMMARY = ' '.join(CURRENT_SUMMARY.strip().split())
+        CURRENT_SUMMARY = '' if isinstance(CURRENT_SUMMARY, float) else \
+            ' '.join(CURRENT_SUMMARY.strip().split())
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
