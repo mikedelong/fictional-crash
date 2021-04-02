@@ -1,3 +1,6 @@
+"""
+Parse and summarize plane crashes for this day through 2009
+"""
 import datetime
 from json import load
 from logging import INFO
@@ -13,6 +16,11 @@ from spellchecker import SpellChecker
 
 
 def is_distance(arg):
+    """
+    parse token as a distance in kilometers
+    :param arg: input string
+    :return: True or False
+    """
     return arg.endswith('km') and arg[:-2].replace('.', '', 1, ).isnumeric()
 
 
