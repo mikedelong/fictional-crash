@@ -26,14 +26,19 @@ def is_flight_level(arg):
 
 
 def is_speed(arg):
+    """
+    Special case code for tokens that may be speeds in knots (kts)
+    :param arg: input string
+    :return: True or False
+    """
     return arg.endswith('kts') and arg[:-3].replace('.', '', 1, ).isnumeric()
 
 
-def valid_date(arg):
+def is_valid_date(arg):
     """
     Is this string a valid date?
     :param arg: input string
-    :return: True or False depending on
+    :return: True or False
     """
     try:
         parse(arg)
@@ -90,7 +95,7 @@ if __name__ == '__main__':
             for word in misspelled:
                 if not any(
                         [is_distance(word), is_elevation(word), is_flight_level(word),
-                         is_speed(word), valid_date(word), word.replace('nm', '').isnumeric(),
+                         is_speed(word), is_valid_date(word), word.replace('nm', '').isnumeric(),
                          word.replace('.', '').isnumeric(), word.replace(',', '').isnumeric(), ],
                 ):
                     logger.warning('misspelled: %s', word)
