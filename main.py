@@ -30,6 +30,11 @@ def is_speed(arg):
 
 
 def valid_date(arg):
+    """
+    Is this string a valid date?
+    :param arg: input string
+    :return: True or False depending on
+    """
     try:
         parse(arg)
         return True
