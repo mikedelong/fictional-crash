@@ -57,7 +57,7 @@ if __name__ == '__main__':
         func=lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ),
     )
 
-    xml_url = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
+    XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     TODAY = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
     logger.info('crashes on this day in history: %d', df[df.day == TODAY]['day'].count())
