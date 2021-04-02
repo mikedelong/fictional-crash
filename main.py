@@ -50,8 +50,8 @@ if __name__ == '__main__':
         encoding='utf-8', filename='./words.json', tokenizer=None, )
 
     # todo add data after June 2009
-    url = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
-    df = read_csv(filepath_or_buffer=url, parse_dates=['Date'])
+    CSV_URL = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/Airplane_Crashes_Since_1908.csv'
+    df = read_csv(filepath_or_buffer=CSV_URL, parse_dates=['Date'])
     df['day'] = df.apply(
         axis=1,
         func=lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ),
