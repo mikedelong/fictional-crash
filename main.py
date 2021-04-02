@@ -22,6 +22,11 @@ def is_elevation(arg):
 
 
 def is_flight_level(arg):
+    """
+    Parse token as a flight level
+    :param arg: input string
+    :return: True or False
+    """
     return arg.startswith('fl') and arg[2:].isnumeric() and int(arg[2:]) <= 450
 
 
