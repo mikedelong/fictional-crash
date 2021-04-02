@@ -17,6 +17,11 @@ def is_distance(arg):
 
 
 def is_elevation(arg):
+    """
+    parse a token as an elevation in feet or meters
+    :param arg: input string
+    :return: True or False
+    """
     return (arg.endswith('ft') and arg[:-2].replace(',', '').isnumeric()) or (
             arg.endswith('m') and arg[:-1].replace(',', '').isnumeric())
 
