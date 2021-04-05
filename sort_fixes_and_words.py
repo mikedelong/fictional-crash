@@ -1,3 +1,6 @@
+"""
+Sort the data files alphabetically and write them back
+"""
 from json import dump
 from json import load
 from logging import INFO
