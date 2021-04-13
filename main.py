@@ -111,7 +111,7 @@ if __name__ == '__main__':
             CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
         tokens = word_tokenize(text=CURRENT_SUMMARY_LOWER)
         misspelled = spell_checker.unknown(tokens, )
-        if len(misspelled) > 0:
+        if misspelled:
             for word in misspelled:
                 if not any(
                         [is_distance(word), is_elevation(word), is_flight_level(word),
