@@ -80,8 +80,8 @@ if __name__ == '__main__':
     # todo add data after June 2009
     CSV_URL = 'https://raw.githubusercontent.com/arif-zaman/airplane-crash/master/' \
               'Airplane_Crashes_Since_1908.csv'
-    df = read_csv(filepath_or_buffer=CSV_URL, parse_dates=['Date'])
-    df['day'] = df.apply(
+    DATA = read_csv(filepath_or_buffer=CSV_URL, parse_dates=['Date'])
+    DATA['day'] = DATA.apply(
         axis=1,
         func=lambda x: '{}-{}'.format(x['Date'].date().month, x['Date'].date().day, ),
     )
@@ -89,8 +89,8 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     TODAY = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
-    logger.info('crashes on this day in history: %d', df[df.day == TODAY]['day'].count())
-    for index, row in df[df.day == TODAY].iterrows():
+    logger.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
+    for index, row in DATA[DATA.day == TODAY].iterrows():
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
         CURRENT_SUMMARY = row['Summary']
