@@ -157,7 +157,7 @@ if __name__ == '__main__':
         elif int(ground) == 1:
             OUTPUT += 'There was 1 ground fatality. '
 
-        if not CURRENT_SUMMARY:
+        if CURRENT_SUMMARY:
             OUTPUT += CURRENT_SUMMARY
 
         OUTPUT = ' '.join(OUTPUT.split())
