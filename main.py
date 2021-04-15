@@ -67,7 +67,7 @@ def is_valid_date(arg):
 
 if __name__ == '__main__':
     time_start = time()
-    logger = getLogger(__name__, )
+    LOGGER = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     spell_checker = SpellChecker(case_sensitive=True, distance=1, language='en', tokenizer=None, )
 
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     TODAY = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
-    logger.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
+    LOGGER.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
     for index, row in DATA[DATA.day == TODAY].iterrows():
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
@@ -118,7 +118,7 @@ if __name__ == '__main__':
                          is_speed(word), is_valid_date(word), word.replace('nm', '').isnumeric(),
                          word.replace('.', '').isnumeric(), word.replace(',', '').isnumeric(), ],
                 ):
-                    logger.warning('misspelled: %s', word)
+                    LOGGER.warning('misspelled: %s', word)
 
         OUTPUT = 'In {} '.format(current_year, )
         if isinstance(flight, str) and flight != '-':
@@ -162,6 +162,6 @@ if __name__ == '__main__':
 
         OUTPUT = ' '.join(OUTPUT.split())
 
-        logger.info('%d: %s', len(OUTPUT, ), OUTPUT, )
+        LOGGER.info('%d: %s', len(OUTPUT, ), OUTPUT, )
 
-    logger.info('total time: {:5.2f}s'.format(time() - time_start))
+    LOGGER.info('total time: {:5.2f}s'.format(time() - time_start))
