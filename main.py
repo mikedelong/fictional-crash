@@ -66,7 +66,7 @@ def is_valid_date(arg):
 
 
 if __name__ == '__main__':
-    time_start = time()
+    TIME_START = time()
     LOGGER = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
     SPELL_CHECKER = SpellChecker(case_sensitive=True, distance=1, language='en', tokenizer=None, )
@@ -164,4 +164,4 @@ if __name__ == '__main__':
 
         LOGGER.info('%d: %s', len(OUTPUT, ), OUTPUT, )
 
-    LOGGER.info('total time: {:5.2f}s'.format(time() - time_start))
+    LOGGER.info('total time: {:5.2f}s'.format(time() - TIME_START))
