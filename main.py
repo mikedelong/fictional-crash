@@ -69,12 +69,12 @@ if __name__ == '__main__':
     time_start = time()
     LOGGER = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
-    spell_checker = SpellChecker(case_sensitive=True, distance=1, language='en', tokenizer=None, )
+    SPELL_CHECKER = SpellChecker(case_sensitive=True, distance=1, language='en', tokenizer=None, )
 
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
         FIXES = load(fp=fixes_fp, )
 
-    spell_checker.word_frequency.load_text_file(
+    SPELL_CHECKER.word_frequency.load_text_file(
         encoding='utf-8', filename='./words.json', tokenizer=None, )
 
     # todo add data after June 2009
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
         tokens = word_tokenize(text=CURRENT_SUMMARY_LOWER)
-        misspelled = spell_checker.unknown(tokens, )
+        misspelled = SPELL_CHECKER.unknown(tokens, )
         if misspelled:
             for word in misspelled:
                 if not any(
