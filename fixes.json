@@ -14,6 +14,7 @@
  "180deg": "180-degree",
  "1engine": "1 engine",
  "1mile": "one mile",
+ "2,000ft": "2000 ft",
  "2/3rds": "two-thirds",
  "27deg": "27 degrees",
  "31-7952246The": "The",
@@ -196,6 +197,7 @@
  "IcelandiAirlines": "Icelandic Airlines",
  "Iliamna, Air Taxi Inc.": "Iliamna Air Taxi Inc.",
  "Iloilo,Philippines": "Iloilo City, Philippines",
+ "Inpec": "INPEC",
  "Int.": "International",
  "Isfanan": "Isfahan",
  "IslamiRevolution's Guards Corps": "Islamic Revolution's Guards Corps",
@@ -216,6 +218,7 @@
  "Kardla": "Kärdla",
  "Kazastan": "Kazakhstan",
  "Kilimanjaroi": "Kilimanjaro",
+ "Kilmanjaro": "Kilimanjaro",
  "Kimhae": "Gimhae",
  "Kobenhavn-Kastrup Airport": "Copenhagen Airport",
  "Koivulahti": "Kvevlax",
@@ -251,6 +254,7 @@
  "Maraba": "Marabá",
  "Maria Serano Serano": "Maria Serrano-Serrano",
  "Med Flight Air Ambulance - Private": "Med Flight Air Ambulance",
+ "Medellin": "Medellín",
  "Meking River": "Mekong River",
  "Menzalah Lake": "Lake Manzala",
  "Mid-AtlantiFreight": "Mid-Atlantic Freight",
@@ -773,6 +777,5 @@
  "vallet": "valet",
  "visiblility": "visibility",
  "which laned safely": "which landed safely",
- "wouldn't": "would not",
- "Kilmanjaro": "Kilimanjaro"
+ "wouldn't": "would not"
 }
