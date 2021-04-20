@@ -99,8 +99,8 @@ if __name__ == '__main__':
         fatalities = row['Fatalities']
         flight = row['Flight #']
         ground = row['Ground']
-        location = row['Location'].strip() if isinstance(row['Location'], str) == str else ''
-        operator = row['Operator'].strip() if isinstance(row['Operator'], str) else\
+        location = row['Location'].strip() if isinstance(row['Location'], str) else ''
+        operator = row['Operator'].strip() if isinstance(row['Operator'], str) else \
             'unknown operator'
         for key, value in FIXES.items():
             CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
@@ -127,7 +127,7 @@ if __name__ == '__main__':
         elif flight == '-' or isnan(float(flight, ), ):
             OUTPUT += 'a {} flight crashed '.format(operator, ) if \
                 operator.startswith('U.S.') or not any(
-                [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U', 'u'}])\
+                    [operator.startswith(c) for c in {'A', 'E', 'I', 'O', 'U', 'u'}]) \
                 else 'an {} flight crashed '.format(operator, )
         else:
             OUTPUT += '{} flight {} crashed '.format(operator, flight, )
