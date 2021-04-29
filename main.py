@@ -106,6 +106,12 @@ if __name__ == '__main__':
             CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
+
+        # todo figure out how to remove this special case code
+        if 'DemocratiRepublic' in location:
+            for key, value in FIXES.items():
+                if 'DemocratiRepublic' in key:
+                    location = location.replace(key, value, )
         CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
