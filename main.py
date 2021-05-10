@@ -88,7 +88,8 @@ if __name__ == '__main__':
 
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
-    TODAY = '{}-{}'.format(datetime.date.today().month, datetime.date.today().day, )
+    date = datetime.date.today()
+    TODAY = '{}-{}'.format(date.month, date.day, )
     LOGGER.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
     for index, row in DATA[DATA.day == TODAY].iterrows():
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
