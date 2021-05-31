@@ -89,7 +89,7 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     base_date = datetime.date.today()
-    offset = datetime.timedelta(days=0)
+    offset = datetime.timedelta(days=0) # was 21
     reference_date = base_date + offset
     TODAY = '{}-{}'.format(reference_date.month, reference_date.day, )
     LOGGER.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
@@ -115,6 +115,10 @@ if __name__ == '__main__':
             for key, value in FIXES.items():
                 if 'DemocratiRepublic' in key:
                     location = location.replace(key, value, )
+        if 'DemocratiRepublic' in CURRENT_SUMMARY:
+            for key, value in FIXES.items():
+                if 'DemocratiRepublic' in key:
+                    CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
         CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
