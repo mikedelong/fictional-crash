@@ -319,6 +319,7 @@
  "Kobenhavn-Kastrup Airport": "Copenhagen Airport",
  "Koivulahti": "Kvevlax",
  "Komatipoot": "Komatipoort",
+ "Korea strait": "Korea Strait",
  "Kosciuszko": "Kościuszko",
  "Kosice": "Košice",
  "LTTA": "LTTE",
@@ -407,6 +408,7 @@
  "Mt. Burangrang, Indonesia": "Mount Burangrang",
  "Mt. Capanne": "Mount Capanne",
  "Mt. Cemet": "Mount Cimet",
+ "Mt. Choquetanga": "Mount Choquetanga",
  "Mt. El Deluvio": "El Diluvio",
  "Mt. El Saluda": "El Saluda",
  "Mt. Giluwe": "Mount Giluwe",
@@ -424,6 +426,7 @@
  "Mt. Mulbong": "Mount Dotdae",
  "Mt. Musaka": "Mount Musaka",
  "Mt. Nova": "Mount Nova",
+ "Mt. Popocatépetl": "Mount Popocatépetl",
  "Mt. Renoso": "Monte Renoso",
  "Mt. Ringani": "Mount Rinjani",
  "Mt. Tete de L'Obiou": "Grande Tête de l'Obiou",
@@ -931,6 +934,7 @@
  "nightime": "night-time",
  "nitriacid": "nitric acid",
  "nitro-glycerinee": "nitroglycerin",
+ "nm short": "nautical miles short",
  "no.1": "No. 1",
  "nonfrangible": "non-frangible",
  "noninstrument": "non-instrument",
@@ -1085,9 +1089,5 @@
  "visiblity": "visibility",
  "volcanieruption": "volcanic eruption",
  "which laned safely": "which landed safely",
- "wouldn't": "would not",
- "Mt. Popocatépetl": "Mount Popocatépetl",
- "nm short": "nautical miles short",
- "Korea strait": "Korea Strait",
- "Mt. Choquetanga": "Mount Choquetanga"
+ "wouldn't": "would not"
 }
