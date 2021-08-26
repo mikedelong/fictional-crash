@@ -46,6 +46,7 @@
  "2,900 ft. short": "2900 feet short",
  "2/3rds": "two-thirds",
  "20 nm": "20 nautical miles",
+ "200 ft. The": "200 feet. The",
  "200 ft. long": "200 feet long",
  "200 ft. short": "200 feet short",
  "24,000 ft. After": "24000 feet. After",
@@ -1136,6 +1137,7 @@
  "specifiair": "specific air",
  "specifidirection": "specific direction",
  "specifigravity": "specific gravity",
+ "staticondition": "static condition",
  "staticonditions": "static conditions",
  "statidischarge": "static discharge",
  "statiground": "static ground",
@@ -1213,6 +1215,5 @@
  "visiblity": "visibility",
  "volcanieruption": "volcanic eruption",
  "which laned safely": "which landed safely",
- "wouldn't": "would not",
- "staticondition": "static condition"
+ "wouldn't": "would not"
 }
