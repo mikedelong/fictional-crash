@@ -2,6 +2,7 @@
 Parse and summarize plane crashes for this day through 2009
 """
 import datetime
+from json import dump
 from json import load
 from logging import INFO
 from logging import basicConfig
@@ -69,6 +70,25 @@ if __name__ == '__main__':
     TIME_START = time()
     LOGGER = getLogger(__name__, )
     basicConfig(format='%(asctime)s : %(name)s : %(levelname)s : %(message)s', level=INFO, )
+
+    with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
+        fixes = load(fp=fixes_fp, )
+
+    LOGGER.info('read fixes')
+    with open(encoding='utf-8', file='./fixes.json', mode='w', ) as fixes_fp:
+        dump(allow_nan=False, check_circular=False, ensure_ascii=False, fp=fixes_fp,
+             indent=True, obj=fixes, sort_keys=True, )
+    LOGGER.info('wrote sorted fixes')
+    del fixes_fp
+
+    with open(encoding='utf-8', file='./words.json', mode='r', ) as words_fp:
+        words = load(fp=words_fp, )
+    words = sorted(words)
+    with open(encoding='utf-8', file='./words.json', mode='w', ) as words_fp:
+        dump(ensure_ascii=False, fp=words_fp, indent=True, obj=words, )
+    LOGGER.info('wrote sorted words')
+    del words_fp
+
     SPELL_CHECKER = SpellChecker(case_sensitive=True, distance=1, language='en', tokenizer=None, )
 
     with open(encoding='utf-8', file='./fixes.json', mode='r', ) as fixes_fp:
@@ -89,8 +109,9 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     base_date = datetime.date.today()
-    offset = datetime.timedelta(days=0) # was 21
+    offset = datetime.timedelta(days=0)  # was 120
     reference_date = base_date + offset
+    LOGGER.info('reference date is {}'.format(reference_date))
     TODAY = '{}-{}'.format(reference_date.month, reference_date.day, )
     LOGGER.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
     for index, row in DATA[DATA.day == TODAY].iterrows():
@@ -115,6 +136,13 @@ if __name__ == '__main__':
             for key, value in FIXES.items():
                 if 'DemocratiRepublic' in key:
                     location = location.replace(key, value, )
+
+        # this doesn't work for 2021-06-25; why not?
+        if 'IslamiRepublic' in location:
+            for key, value in FIXES.items():
+                if 'IslamiRepublic' in key:
+                    location = location.replace(key, value, )
+
         if 'DemocratiRepublic' in CURRENT_SUMMARY:
             for key, value in FIXES.items():
                 if 'DemocratiRepublic' in key:
