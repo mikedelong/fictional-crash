@@ -109,9 +109,9 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     base_date = datetime.date.today()
-    offset = datetime.timedelta(days=0)  # was 120
+    offset = datetime.timedelta(days=0) # was 120
     reference_date = base_date + offset
-    LOGGER.info('reference date is {}'.format(reference_date))
+    LOGGER.info('reference date is %s', reference_date)
     TODAY = '{}-{}'.format(reference_date.month, reference_date.day, )
     LOGGER.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
     for index, row in DATA[DATA.day == TODAY].iterrows():
