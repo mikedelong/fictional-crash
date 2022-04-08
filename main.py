@@ -109,11 +109,12 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     base_date = datetime.date.today()
-    offset = datetime.timedelta(days=0)  # was 254
+    offset = datetime.timedelta(days=0) # was 301
     reference_date = base_date + offset
     LOGGER.info('reference date is %s', reference_date)
     TODAY = '{}-{}'.format(reference_date.month, reference_date.day, )
     LOGGER.info('crashes on this day in history: %d', DATA[DATA.day == TODAY]['day'].count())
+    data_today = DATA[DATA.day == TODAY]
     for index, row in DATA[DATA.day == TODAY].iterrows():
         aboard = 'an unknown number' if isnan(row['Aboard']) else int(row['Aboard'])
         current_year = row['Date'].date().year
@@ -126,27 +127,12 @@ if __name__ == '__main__':
         location = row['Location'].strip() if isinstance(row['Location'], str) else ''
         operator = row['Operator'].strip() if isinstance(row['Operator'], str) else \
             'unknown operator'
+        LOGGER.debug(operator)
         for key, value in FIXES.items():
             CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
             location = location.replace(key, value, )
             operator = operator.replace(key, value, )
 
-        # todo figure out how to remove this special case code
-        if 'DemocratiRepublic' in location:
-            for key, value in FIXES.items():
-                if 'DemocratiRepublic' in key:
-                    location = location.replace(key, value, )
-
-        # this doesn't work for 2021-06-25; why not?
-        if 'IslamiRepublic' in location:
-            for key, value in FIXES.items():
-                if 'IslamiRepublic' in key:
-                    location = location.replace(key, value, )
-
-        if 'DemocratiRepublic' in CURRENT_SUMMARY:
-            for key, value in FIXES.items():
-                if 'DemocratiRepublic' in key:
-                    CURRENT_SUMMARY = CURRENT_SUMMARY.replace(key, value, )
         CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY.lower()
         for key, value in {'’': ' ', '\'': ' ', '-': ' ', '/': ' ', '..': '.'}.items():
             CURRENT_SUMMARY_LOWER = CURRENT_SUMMARY_LOWER.replace(key, value)
