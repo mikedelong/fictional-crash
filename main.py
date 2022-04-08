@@ -109,7 +109,7 @@ if __name__ == '__main__':
     XML_URL = 'http://app.ntsb.gov/aviationquery/Download.ashx?type=xml'
 
     base_date = datetime.date.today()
-    offset = datetime.timedelta(days=0) # was 301
+    offset = datetime.timedelta(days=0)  # was 301
     reference_date = base_date + offset
     LOGGER.info('reference date is %s', reference_date)
     TODAY = '{}-{}'.format(reference_date.month, reference_date.day, )
